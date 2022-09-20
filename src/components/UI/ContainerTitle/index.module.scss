@@ -1,0 +1,18 @@
+@import '../../../styles/utils/ColorPallete';
+
+.container {
+    background: $primary;
+    box-shadow: $primary-shadow;
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 1em 0 1em;
+
+    svg {
+        height: 26px;
+        width: 26px;
+    }
+}
