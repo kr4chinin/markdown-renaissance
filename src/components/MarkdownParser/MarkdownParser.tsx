@@ -1,9 +1,19 @@
 import './index.scss'
 import hljs from 'highlight.js/lib/common'
 import '../../../node_modules/highlight.js/styles/base16/papercolor-light.css'
-import React from 'react'
+import { useCallback, useState } from 'react'
+import { debounce } from '../../helpers/debounce'
+import { useMarkdownContext } from '../../context/MarkdownContext'
 
 const MarkdownParser = () => {
+	const { setMarkdown } = useMarkdownContext()
+
+	const handleChange = (value: string) => {
+		setMarkdown(value)
+	}
+
+	const debouncedHandleChange = useCallback(debounce(handleChange, 500), [])
+
 	function handleUpdate(text: string) {
 		let resultElement = document.querySelector('#highlighting-content')!
 
@@ -33,7 +43,7 @@ const MarkdownParser = () => {
 		// Scroll result to scroll coords of event - sync with textarea
 		let resultElement = document.querySelector('#highlighting')!
 
-        if (!(resultElement instanceof HTMLElement)) {
+		if (!(resultElement instanceof HTMLElement)) {
 			return
 		}
 
@@ -53,6 +63,9 @@ const MarkdownParser = () => {
 					if (e.target instanceof HTMLTextAreaElement) {
 						handleSyncScroll(e.target)
 					}
+				}}
+				onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+					debouncedHandleChange(e.target.value)
 				}}
 				placeholder="Enter markdown..."
 			/>
