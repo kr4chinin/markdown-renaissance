@@ -1,19 +1,29 @@
 @import '../assets/fonts/Zapfino';
+@import './utils/ColorPallete';
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
-    width: 100vw;
-    height: 100vh;
+	width: 100vw;
+	height: 100vh;
 
-    .title {
-        font-family: 'Zapfino', sans-serif;
-    }
+	.title {
+		font-family: 'Zapfino', sans-serif;
 
-    .content {
-        display: flex;
-        gap: 65px;
-    }
+		width: 514px;
+		height: 97px;
+
+		font-weight: 400;
+		font-size: 36px;
+		line-height: 122px;
+
+		color: $primary-font;
+	}
+
+	.content {
+		display: flex;
+		gap: 65px;
+	}
 }
