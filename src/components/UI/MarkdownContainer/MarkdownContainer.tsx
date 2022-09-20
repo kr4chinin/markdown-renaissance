@@ -1,15 +1,13 @@
-import MarkdownParser from '../MarkdownParser/MarkdownParser'
+import MarkdownParser from '../../MarkdownParser/MarkdownParser'
+import BreakLine from '../BreakLine/BreakLine'
+import ContainerTitle from '../ContainerTitle/ContainerTitle'
 import styles from './index.module.scss'
 
 const MarkdownContainer = () => {
 	return (
 		<div className={styles.container}>
-			<div className={styles['title-container']}>
-				<p>Icon</p>
-				<h2>Your markdown</h2>
-				<p>Icon</p>
-			</div>
-			<div>Line + svg + line</div>
+            <ContainerTitle title='Your markdown' />
+            <BreakLine />
 			<div className={styles['content-container']}>
 				<div className={styles['controls-container']}></div>
 				<div className={styles['parser-container']}>

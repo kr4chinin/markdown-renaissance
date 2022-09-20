@@ -1,5 +1,5 @@
-import MarkdownContainer from './components/MarkdownContainer/MarkdownContainer'
-import PreviewContainer from './components/PreviewContainer/PreviewContainer'
+import MarkdownContainer from './components/UI/MarkdownContainer/MarkdownContainer'
+import PreviewContainer from './components/UI/PreviewContainer/PreviewContainer'
 import styles from './styles/App.module.scss'
 
 const App = () => {
