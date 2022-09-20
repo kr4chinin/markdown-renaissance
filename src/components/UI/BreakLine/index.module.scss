@@ -1,3 +1,16 @@
 .container {
     display: flex;
+    align-items: center;
+    width: 100%;
+
+    hr {
+        width: 42%;
+        
+        border: 1px solid #69707D;
+    }
+
+    svg {
+        width: 12%;
+        margin: 0 2% 0 2%;
+    }
 }
