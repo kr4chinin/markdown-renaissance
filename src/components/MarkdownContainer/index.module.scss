@@ -1,0 +1,36 @@
+@import '../../styles/utils/ColorPallete';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.title-container {
+		width: 465px;
+		height: 66px;
+
+		background: $primary;
+		box-shadow: $primary-shadow;
+		border-radius: 15px;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.content-container {
+		width: 464px;
+		height: 445px;
+
+		background: $primary;
+		box-shadow: $primary-shadow;
+		border-radius: 15px;
+
+        .parser-container {
+            width: 100%;
+            height: 100%;
+
+            position: relative;
+        }
+	}
+}

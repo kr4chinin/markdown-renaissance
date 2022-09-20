@@ -1,4 +1,6 @@
-import styles from './styles/App.module.css'
+import MarkdownContainer from './components/MarkdownContainer/MarkdownContainer'
+import PreviewContainer from './components/PreviewContainer/PreviewContainer'
+import styles from './styles/App.module.scss'
 
 const App = () => {
 	return (
@@ -6,12 +8,8 @@ const App = () => {
             {/* <Navbar /> */}
             <h1 className={styles.title}>Markdown Renaissance</h1>
             <div className={styles.content}>
-                <div className={styles['markdown-container']}>
-
-                </div>
-                <div className={styles['preview-container']}>
-
-                </div>
+                <MarkdownContainer />
+                <PreviewContainer />
             </div>
         </div>
     )
