@@ -1,7 +1,7 @@
 import './index.scss'
 import hljs from 'highlight.js/lib/common'
 import '../../../node_modules/highlight.js/styles/base16/papercolor-light.css'
-import { useCallback, useState } from 'react'
+import { useCallback } from 'react'
 import { debounce } from '../../helpers/debounce'
 import { useMarkdownContext } from '../../context/MarkdownContext'
 
