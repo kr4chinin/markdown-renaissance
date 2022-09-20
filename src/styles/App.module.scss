@@ -1,3 +1,5 @@
+@import '../assets/fonts/Zapfino';
+
 .container {
     display: flex;
     flex-direction: column;
@@ -5,6 +7,10 @@
 
     width: 100vw;
     height: 100vh;
+
+    .title {
+        font-family: 'Zapfino', sans-serif;
+    }
 
     .content {
         display: flex;

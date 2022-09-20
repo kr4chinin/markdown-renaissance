@@ -1,18 +1,21 @@
 @import '../../../styles/utils/ColorPallete';
+@import '../../../assets/fonts/SnellRoundhadRegular';
 
 .container {
-    background: $primary;
-    box-shadow: $primary-shadow;
-    border-radius: 15px;
+	font-family: 'Snell Roundhad', sans-serif;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+	background: $primary;
+	box-shadow: $primary-shadow;
+	border-radius: 15px;
 
-    padding: 0 1em 0 1em;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 
-    svg {
-        height: 26px;
-        width: 26px;
-    }
+	padding: 0 1em 0 1em;
+
+	svg {
+		height: 26px;
+		width: 26px;
+	}
 }
