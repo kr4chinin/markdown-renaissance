@@ -8,7 +8,7 @@ const PreviewParser = () => {
 	const { markdown } = useMarkdownContext()
 
 	return (
-		<div
+		<pre
 			className={styles.container}
 			dangerouslySetInnerHTML={{ __html: md.render(markdown) }}
 		/>
