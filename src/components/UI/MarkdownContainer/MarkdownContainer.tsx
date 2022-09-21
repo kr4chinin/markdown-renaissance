@@ -9,12 +9,15 @@ import { useState } from 'react'
 import { useMarkdownContext } from '../../../context/MarkdownContext'
 import MarkdownController from '../../../helpers/MarkdownController'
 import ControlsContainer from '../ControlsContainer/ControlsContainer'
+import HeadersDropdown from '../HeadersDropdown/HeadersDropdown'
 
 const MarkdownContainer = () => {
 	const [textareaValue, setTextareaValue] = useState('')
 	const [textareaRef, setTextareaRef] = useState<HTMLTextAreaElement | null>(
 		null
 	)
+
+	const [isHeaderDropdownOpen, setIsHeaderDropdownOpen] = useState(false)
 
 	const { setMarkdown } = useMarkdownContext()
 
@@ -25,9 +28,13 @@ const MarkdownContainer = () => {
 		setMarkdown
 	)
 
-    function handleClear() {
-        markdownController.clear()
-    }
+	function handleClear() {
+		markdownController.clear()
+	}
+
+	function handleOpenHeaderDropdown() {
+		setIsHeaderDropdownOpen(true)
+	}
 
 	return (
 		<div className={styles.container}>
@@ -43,9 +50,9 @@ const MarkdownContainer = () => {
 						Icon={<Icon icon={Icons.ITALIC} />}
 						onClick={() => markdownController.handleInsert('italic')}
 					/>
-					<ActionButton
-						Icon={<Icon icon={Icons.HEADER} />}
-						onClick={() => {}}
+					<HeadersDropdown
+						isShown={isHeaderDropdownOpen}
+						setIsShown={setIsHeaderDropdownOpen}
 					/>
 					<ActionButton
 						Icon={<Icon icon={Icons.LINK} />}

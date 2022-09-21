@@ -1,3 +1,5 @@
+import { handleUpdate } from "./handleUpdateHighlight"
+
 class MarkdownController {
 	private _textareaRef: HTMLTextAreaElement | null
 	private _textareaValue: string
@@ -24,6 +26,8 @@ class MarkdownController {
         this._setTextareaValue('')
         this._setMarkdown('')
         this._textareaRef.focus()
+
+        handleUpdate('')
     }
 
 	// Insert bold / italic / link text template or make selected text bold / italic / link
@@ -68,6 +72,7 @@ class MarkdownController {
 		this._setTextareaValue(result)
 		this._setMarkdown(result)
 		this._textareaRef.focus()
+        handleUpdate(result)
 	}
 }
 
