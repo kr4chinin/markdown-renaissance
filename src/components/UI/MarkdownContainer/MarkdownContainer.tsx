@@ -8,7 +8,7 @@ import { Icons } from '../../../utils/Icons'
 import { ReactComponent as Papyrus } from '../../../assets/icons/papyrus.svg'
 import { useState } from 'react'
 import { useMarkdownContext } from '../../../context/MarkdownContext'
-import { MarkdownController } from '../../../helpers/MarkdownController'
+import MarkdownController from '../../../helpers/MarkdownController'
 
 const MarkdownContainer = () => {
 	const [textareaValue, setTextareaValue] = useState('')
@@ -17,6 +17,13 @@ const MarkdownContainer = () => {
 	)
 
 	const { setMarkdown } = useMarkdownContext()
+
+	const markdownController = new MarkdownController(
+		textareaRef,
+		textareaValue,
+		setTextareaValue,
+		setMarkdown
+	)
 
 	return (
 		<div className={styles.container}>
@@ -28,51 +35,19 @@ const MarkdownContainer = () => {
 					<div className={styles.buttons}>
 						<ActionButton
 							Icon={<Icon icon={Icons.BOLD} />}
-							onClick={() =>
-								MarkdownController.handleInsert(
-									'bold',
-									textareaRef,
-									textareaValue,
-									setMarkdown,
-									setTextareaValue
-								)
-							}
+							onClick={() => markdownController.handleInsert('bold')}
 						/>
 						<ActionButton
 							Icon={<Icon icon={Icons.ITALIC} />}
-							onClick={() =>
-								MarkdownController.handleInsert(
-									'italic',
-									textareaRef,
-									textareaValue,
-									setMarkdown,
-									setTextareaValue
-								)
-							}
+							onClick={() => markdownController.handleInsert('italic')}
 						/>
 						<ActionButton
 							Icon={<Icon icon={Icons.HEADER} />}
-							onClick={() =>
-								MarkdownController.handleInsert(
-									'italic',
-									textareaRef,
-									textareaValue,
-									setMarkdown,
-									setTextareaValue
-								)
-							}
+							onClick={() => {}}
 						/>
 						<ActionButton
 							Icon={<Icon icon={Icons.LINK} />}
-							onClick={() =>
-								MarkdownController.handleInsert(
-									'link',
-									textareaRef,
-									textareaValue,
-									setMarkdown,
-									setTextareaValue
-								)
-							}
+							onClick={() => markdownController.handleInsert('link')}
 						/>
 					</div>
 				</div>
