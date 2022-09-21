@@ -8,14 +8,14 @@ import { Icons } from '../../../utils/Icons'
 import { ReactComponent as Papyrus } from '../../../assets/icons/papyrus.svg'
 import { useState } from 'react'
 import { useMarkdownContext } from '../../../context/MarkdownContext'
-import { handleInsertBold } from '../../../helpers/insertBold'
+import { MarkdownController } from '../../../helpers/MarkdownController'
 
 const MarkdownContainer = () => {
 	const [textareaValue, setTextareaValue] = useState('')
 	const [textareaRef, setTextareaRef] = useState<HTMLTextAreaElement | null>(
 		null
 	)
-    
+
 	const { setMarkdown } = useMarkdownContext()
 
 	return (
@@ -29,7 +29,8 @@ const MarkdownContainer = () => {
 						<ActionButton
 							Icon={<Icon icon={Icons.BOLD} />}
 							onClick={() =>
-								handleInsertBold(
+								MarkdownController.handleInsert(
+									'bold',
 									textareaRef,
 									textareaValue,
 									setMarkdown,
@@ -39,7 +40,15 @@ const MarkdownContainer = () => {
 						/>
 						<ActionButton
 							Icon={<Icon icon={Icons.ITALIC} />}
-							onClick={() => {}}
+							onClick={() =>
+								MarkdownController.handleInsert(
+									'italic',
+									textareaRef,
+									textareaValue,
+									setMarkdown,
+									setTextareaValue
+								)
+							}
 						/>
 						<ActionButton
 							Icon={<Icon icon={Icons.HEADER} />}
