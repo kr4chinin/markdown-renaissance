@@ -6,19 +6,36 @@ import { Icon } from '@iconify/react'
 import ActionButton from '../ActionButton/ActionButton'
 import { Icons } from '../../../utils/Icons'
 import { ReactComponent as Papyrus } from '../../../assets/icons/papyrus.svg'
+import { useState } from 'react'
+import { useMarkdownContext } from '../../../context/MarkdownContext'
+import { handleInsertBold } from '../../../helpers/insertBold'
 
 const MarkdownContainer = () => {
+	const [textareaValue, setTextareaValue] = useState('')
+	const [textareaRef, setTextareaRef] = useState<HTMLTextAreaElement | null>(
+		null
+	)
+    
+	const { setMarkdown } = useMarkdownContext()
+
 	return (
 		<div className={styles.container}>
 			<ContainerTitle title="Your markdown" />
 			<BreakLine />
 			<div className={styles['content-container']}>
 				<div className={styles['controls-container']}>
-					<Papyrus className={styles['side-icon']}/>
+					<Papyrus className={styles['side-icon']} />
 					<div className={styles.buttons}>
 						<ActionButton
 							Icon={<Icon icon={Icons.BOLD} />}
-							onClick={() => {}}
+							onClick={() =>
+								handleInsertBold(
+									textareaRef,
+									textareaValue,
+									setMarkdown,
+									setTextareaValue
+								)
+							}
 						/>
 						<ActionButton
 							Icon={<Icon icon={Icons.ITALIC} />}
@@ -35,7 +52,11 @@ const MarkdownContainer = () => {
 					</div>
 				</div>
 				<div className={styles['parser-container']}>
-					<MarkdownParser />
+					<MarkdownParser
+						textareaValue={textareaValue}
+						setTextareaValue={setTextareaValue}
+						setTextareaRef={setTextareaRef}
+					/>
 				</div>
 			</div>
 			<div className={styles['stats-container']}></div>

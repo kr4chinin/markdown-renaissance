@@ -1,11 +1,21 @@
 import './index.scss'
 import hljs from 'highlight.js/lib/common'
 import '../../../node_modules/highlight.js/styles/base16/papercolor-light.css'
-import { useCallback } from 'react'
+import { FC, useCallback } from 'react'
 import { debounce } from '../../helpers/debounce'
 import { useMarkdownContext } from '../../context/MarkdownContext'
 
-const MarkdownParser = () => {
+interface MarkdownParserProps {
+	textareaValue: string
+	setTextareaValue: (value: string) => void
+	setTextareaRef: (ref: HTMLTextAreaElement | null) => void
+}
+
+const MarkdownParser: FC<MarkdownParserProps> = ({
+	textareaValue,
+	setTextareaValue,
+	setTextareaRef
+}) => {
 	const { setMarkdown } = useMarkdownContext()
 
 	const handleChange = (value: string) => {
@@ -54,7 +64,9 @@ const MarkdownParser = () => {
 	return (
 		<>
 			<textarea
-				id="editing"
+                id="editing"
+				value={textareaValue}
+				ref={setTextareaRef}
 				onInput={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
 					handleSyncScroll(e.target)
 					handleUpdate(e.target.value)
@@ -66,12 +78,15 @@ const MarkdownParser = () => {
 				}}
 				onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
 					debouncedHandleChange(e.target.value)
+					setTextareaValue(e.target.value)
 				}}
 				placeholder="Enter markdown..."
 			/>
 
 			<div id="highlighting" aria-hidden="true">
-				<code className="language-markdown" id="highlighting-content"></code>
+				<code className="language-markdown" id="highlighting-content">
+					{textareaValue}
+				</code>
 			</div>
 		</>
 	)
