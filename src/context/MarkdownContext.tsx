@@ -1,4 +1,4 @@
-import { createContext, FC, useContext, useState } from 'react'
+import { createContext, FC, useContext, useMemo, useState } from 'react'
 
 const MarkdownContext = createContext<{
 	markdown: string
@@ -23,10 +23,7 @@ export const MarkdownContextProvider: FC<MarkdownContextProviderProps> = ({
 
 	return (
 		<MarkdownContext.Provider
-			value={{
-				markdown,
-				setMarkdown
-			}}
+			value={useMemo(() => ({ markdown, setMarkdown }), [markdown])}
 		>
 			{children}
 		</MarkdownContext.Provider>
