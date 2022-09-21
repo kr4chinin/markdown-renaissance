@@ -1,0 +1,23 @@
+@import '../../../styles/utils/ColorPallete';
+
+.controls-container {
+	width: 100%;
+	height: fit-content;
+	padding: 15px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.side-icon {
+		width: 48px;
+		height: 48px;
+
+		fill: $primary-icon;
+	}
+
+	.buttons {
+		display: flex;
+		gap: 10px;
+	}
+}
