@@ -19,4 +19,14 @@
 
         color: $primary-icon;
     }
+
+    transition: 500ms;
+
+    &:hover {
+        cursor: pointer;
+        transform: translateY(2px);
+        scale: 1.05;
+
+        filter: brightness(0.9);
+    }
 }
