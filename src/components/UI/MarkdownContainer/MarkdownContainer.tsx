@@ -2,14 +2,38 @@ import MarkdownParser from '../../MarkdownParser/MarkdownParser'
 import BreakLine from '../BreakLine/BreakLine'
 import ContainerTitle from '../ContainerTitle/ContainerTitle'
 import styles from './index.module.scss'
+import { Icon } from '@iconify/react'
+import ActionButton from '../ActionButton/ActionButton'
+import { Icons } from '../../../utils/Icons'
+import { ReactComponent as Papyrus } from '../../../assets/icons/papyrus.svg'
 
 const MarkdownContainer = () => {
 	return (
 		<div className={styles.container}>
-            <ContainerTitle title='Your markdown' />
-            <BreakLine />
+			<ContainerTitle title="Your markdown" />
+			<BreakLine />
 			<div className={styles['content-container']}>
-				<div className={styles['controls-container']}></div>
+				<div className={styles['controls-container']}>
+					<Papyrus className={styles['side-icon']}/>
+					<div className={styles.buttons}>
+						<ActionButton
+							Icon={<Icon icon={Icons.BOLD} />}
+							onClick={() => {}}
+						/>
+						<ActionButton
+							Icon={<Icon icon={Icons.ITALIC} />}
+							onClick={() => {}}
+						/>
+						<ActionButton
+							Icon={<Icon icon={Icons.HEADER} />}
+							onClick={() => {}}
+						/>
+						<ActionButton
+							Icon={<Icon icon={Icons.LINK} />}
+							onClick={() => {}}
+						/>
+					</div>
+				</div>
 				<div className={styles['parser-container']}>
 					<MarkdownParser />
 				</div>
