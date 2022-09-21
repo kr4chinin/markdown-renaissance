@@ -52,11 +52,27 @@ const MarkdownContainer = () => {
 						/>
 						<ActionButton
 							Icon={<Icon icon={Icons.HEADER} />}
-							onClick={() => {}}
+							onClick={() =>
+								MarkdownController.handleInsert(
+									'italic',
+									textareaRef,
+									textareaValue,
+									setMarkdown,
+									setTextareaValue
+								)
+							}
 						/>
 						<ActionButton
 							Icon={<Icon icon={Icons.LINK} />}
-							onClick={() => {}}
+							onClick={() =>
+								MarkdownController.handleInsert(
+									'link',
+									textareaRef,
+									textareaValue,
+									setMarkdown,
+									setTextareaValue
+								)
+							}
 						/>
 					</div>
 				</div>

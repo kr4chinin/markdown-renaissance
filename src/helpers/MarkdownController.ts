@@ -1,7 +1,7 @@
 export class MarkdownController {
 	// Insert bold / italic text template (**** or **) or make selected text bold / italic
 	static handleInsert(
-		option: 'bold' | 'italic',
+		option: 'bold' | 'italic' | 'link',
 		textareaRef: HTMLTextAreaElement | null,
 		textareaValue: string,
 		setTextareaValue: (value: string) => void,
@@ -39,6 +39,9 @@ export class MarkdownController {
 			case 'italic':
 				result = `${textBefore}*${selectedText}*${textAfter}`
 				break
+            case 'link': 
+                result = `${textBefore}[${selectedText}](url)${textAfter}`
+                break
 			default:
 				return
 		}
