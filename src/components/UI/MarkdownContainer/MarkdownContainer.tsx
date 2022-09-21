@@ -32,10 +32,6 @@ const MarkdownContainer = () => {
 		markdownController.clear()
 	}
 
-	function handleOpenHeaderDropdown() {
-		setIsHeaderDropdownOpen(true)
-	}
-
 	return (
 		<div className={styles.container}>
 			<ContainerTitle title="Your markdown" />

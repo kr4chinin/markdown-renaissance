@@ -1,5 +1,4 @@
 import './index.scss'
-import hljs from 'highlight.js/lib/common'
 import '../../../node_modules/highlight.js/styles/base16/papercolor-light.css'
 import { FC, useCallback } from 'react'
 import { debounce } from '../../helpers/debounce'
@@ -23,7 +22,7 @@ const MarkdownParser: FC<MarkdownParserProps> = ({
 		setMarkdown(value)
 	}
 
-	const debouncedHandleChange = useCallback(debounce(handleChange, 500), [])
+	const debouncedHandleChange = useCallback(debounce(handleChange, 300), [])
 
 	function handleSyncScroll(element: HTMLElement) {
 		// Scroll result to scroll coords of event - sync with textarea
@@ -40,7 +39,7 @@ const MarkdownParser: FC<MarkdownParserProps> = ({
 	return (
 		<>
 			<textarea
-                id="editing"
+				id="editing"
 				value={textareaValue}
 				ref={setTextareaRef}
 				onInput={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -60,9 +59,7 @@ const MarkdownParser: FC<MarkdownParserProps> = ({
 			/>
 
 			<div id="highlighting" aria-hidden="true">
-				<code className="language-markdown" id="highlighting-content">
-
-				</code>
+				<code className="language-markdown" id="highlighting-content"></code>
 			</div>
 		</>
 	)
