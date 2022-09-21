@@ -1,4 +1,5 @@
-import { handleUpdate } from "./handleUpdateHighlight"
+import { handleUpdate } from './handleUpdateHighlight'
+import { Headers } from '../utils/headers'
 
 class MarkdownController {
 	private _textareaRef: HTMLTextAreaElement | null
@@ -18,17 +19,17 @@ class MarkdownController {
 		this._setMarkdown = markdownSetter
 	}
 
-    clear() {
-        if (!this._textareaRef) {
-            return
-        }
+	clear() {
+		if (!this._textareaRef) {
+			return
+		}
 
-        this._setTextareaValue('')
-        this._setMarkdown('')
-        this._textareaRef.focus()
+		this._setTextareaValue('')
+		this._setMarkdown('')
+		this._textareaRef.focus()
 
-        handleUpdate('')
-    }
+		handleUpdate('')
+	}
 
 	// Insert bold / italic / link text template or make selected text bold / italic / link
 	handleInsert(option: 'bold' | 'italic' | 'link') {
@@ -72,7 +73,58 @@ class MarkdownController {
 		this._setTextareaValue(result)
 		this._setMarkdown(result)
 		this._textareaRef.focus()
-        handleUpdate(result)
+		handleUpdate(result)
+	}
+
+	handleHeader(type: Headers) {
+		if (!this._textareaRef) {
+			return
+		}
+
+		// Get selection start and end position
+		const selectionStart = this._textareaRef.selectionStart
+		const selectionEnd = this._textareaRef.selectionEnd
+
+		if (selectionStart === null || selectionEnd === null) {
+			return
+		}
+
+		const textBefore = this._textareaValue.slice(0, selectionStart)
+		const textAfter = this._textareaValue.slice(selectionEnd)
+
+		// Slice out chunk of selected text
+		const selectedText = this._textareaValue.slice(selectionStart, selectionEnd)
+
+		// Insert header tag before selected chunk of text
+		let result = ''
+
+		switch (type) {
+			case 'h1':
+				result = `${textBefore}# ${selectedText}${textAfter}`
+				break
+			case 'h2':
+				result = `${textBefore}## ${selectedText}${textAfter}`
+				break
+			case 'h3':
+				result = `${textBefore}### ${selectedText}${textAfter}`
+				break
+			case 'h4':
+				result = `${textBefore}#### ${selectedText}${textAfter}`
+				break
+			case 'h5':
+				result = `${textBefore}##### ${selectedText}${textAfter}`
+				break
+			case 'h6':
+				result = `${textBefore}###### ${selectedText}${textAfter}`
+				break
+			default:
+				return
+		}
+
+		this._setTextareaValue(result)
+		this._setMarkdown(result)
+		this._textareaRef.focus()
+		handleUpdate(result)
 	}
 }
 

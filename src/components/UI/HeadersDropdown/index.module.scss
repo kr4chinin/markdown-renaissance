@@ -1,0 +1,81 @@
+@import '../../../styles/utils/ColorPallete';
+
+.trigger {
+    z-index: 2;
+
+    width: 36px;
+	height: 36px;
+
+    border: none;
+	border-radius: 50%;
+	background: $primary-button;
+	box-shadow: $primary-button-shadow;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        cursor: pointer;
+        transform: translateY(2px);
+    }
+
+    svg {
+        width: 19px;
+        height: 19px;
+
+        color: $primary-icon;
+        pointer-events: none;
+    }
+
+    transition: 500ms;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+	.dropdown {
+
+		position: absolute;
+		width: 59px;
+		height: 266px;
+
+		overflow: hidden;
+
+		pointer-events: none;
+
+		border-radius: 15px;
+
+        transform: translateY(60%);
+
+		.menu {
+            // parentWidth - 2px (shadow)
+			width: 57px;
+			height: 264px;
+
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			padding: 8px 0 8px 0;
+			gap: 8px;
+
+			transform: translateY(-102%);
+			transition: 500ms ease-out;
+
+			background: #1defe1;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+			border-radius: 15px;
+
+		}
+
+		.menu.active {
+			transform: translateY(0%);
+			pointer-events: all;
+		}
+	}
+
+	.dropdown.active {
+		z-index: 1;
+		pointer-events: all;
+	}
+}

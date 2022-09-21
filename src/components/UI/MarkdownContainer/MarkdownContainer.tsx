@@ -51,6 +51,7 @@ const MarkdownContainer = () => {
 						onClick={() => markdownController.handleInsert('italic')}
 					/>
 					<HeadersDropdown
+						markdownController={markdownController}
 						isShown={isHeaderDropdownOpen}
 						setIsShown={setIsHeaderDropdownOpen}
 					/>
