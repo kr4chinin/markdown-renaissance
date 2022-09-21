@@ -1,6 +1,8 @@
 import PreviewParser from '../../PreviewParser/PreviewParser'
+import ActionButton from '../ActionButton/ActionButton'
 import BreakLine from '../BreakLine/BreakLine'
 import ContainerTitle from '../ContainerTitle/ContainerTitle'
+import ControlsContainer from '../ControlsContainer/ControlsContainer'
 import styles from './index.module.scss'
 
 const PreviewContainer = () => {
@@ -8,9 +10,11 @@ const PreviewContainer = () => {
 		<div>
 			<div className={styles.container}>
 				<ContainerTitle title="Preview" />
-                <BreakLine />
+				<BreakLine />
 				<div className={styles['content-container']}>
-					<div className={styles['controls-container']}></div>
+					<ControlsContainer>
+						<ActionButton Icon={<></>} onClick={() => {}} />
+					</ControlsContainer>
 					<div className={styles['parser-container']}>
 						<PreviewParser />
 					</div>

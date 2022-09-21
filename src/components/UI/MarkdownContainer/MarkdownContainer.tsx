@@ -5,10 +5,10 @@ import styles from './index.module.scss'
 import { Icon } from '@iconify/react'
 import ActionButton from '../ActionButton/ActionButton'
 import { Icons } from '../../../utils/Icons'
-import { ReactComponent as Papyrus } from '../../../assets/icons/papyrus.svg'
 import { useState } from 'react'
 import { useMarkdownContext } from '../../../context/MarkdownContext'
 import MarkdownController from '../../../helpers/MarkdownController'
+import ControlsContainer from '../ControlsContainer/ControlsContainer'
 
 const MarkdownContainer = () => {
 	const [textareaValue, setTextareaValue] = useState('')
@@ -30,27 +30,25 @@ const MarkdownContainer = () => {
 			<ContainerTitle title="Your markdown" />
 			<BreakLine />
 			<div className={styles['content-container']}>
-				<div className={styles['controls-container']}>
-					<Papyrus className={styles['side-icon']} />
-					<div className={styles.buttons}>
-						<ActionButton
-							Icon={<Icon icon={Icons.BOLD} />}
-							onClick={() => markdownController.handleInsert('bold')}
-						/>
-						<ActionButton
-							Icon={<Icon icon={Icons.ITALIC} />}
-							onClick={() => markdownController.handleInsert('italic')}
-						/>
-						<ActionButton
-							Icon={<Icon icon={Icons.HEADER} />}
-							onClick={() => {}}
-						/>
-						<ActionButton
-							Icon={<Icon icon={Icons.LINK} />}
-							onClick={() => markdownController.handleInsert('link')}
-						/>
-					</div>
-				</div>
+				<ControlsContainer>
+					<ActionButton
+						Icon={<Icon icon={Icons.BOLD} />}
+						onClick={() => markdownController.handleInsert('bold')}
+					/>
+					<ActionButton
+						Icon={<Icon icon={Icons.ITALIC} />}
+						onClick={() => markdownController.handleInsert('italic')}
+					/>
+					<ActionButton
+						Icon={<Icon icon={Icons.HEADER} />}
+						onClick={() => {}}
+					/>
+					<ActionButton
+						Icon={<Icon icon={Icons.LINK} />}
+						onClick={() => markdownController.handleInsert('link')}
+					/>
+				</ControlsContainer>
+
 				<div className={styles['parser-container']}>
 					<MarkdownParser
 						textareaValue={textareaValue}
