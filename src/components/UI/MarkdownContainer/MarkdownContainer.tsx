@@ -25,6 +25,10 @@ const MarkdownContainer = () => {
 		setMarkdown
 	)
 
+    function handleClear() {
+        markdownController.clear()
+    }
+
 	return (
 		<div className={styles.container}>
 			<ContainerTitle title="Your markdown" />
@@ -46,6 +50,10 @@ const MarkdownContainer = () => {
 					<ActionButton
 						Icon={<Icon icon={Icons.LINK} />}
 						onClick={() => markdownController.handleInsert('link')}
+					/>
+					<ActionButton
+						Icon={<Icon icon={Icons.CLEAR} />}
+						onClick={handleClear}
 					/>
 				</ControlsContainer>
 

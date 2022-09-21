@@ -1,3 +1,5 @@
+import { Icon } from '@iconify/react'
+import { Icons } from '../../../utils/Icons'
 import PreviewParser from '../../PreviewParser/PreviewParser'
 import ActionButton from '../ActionButton/ActionButton'
 import BreakLine from '../BreakLine/BreakLine'
@@ -13,7 +15,10 @@ const PreviewContainer = () => {
 				<BreakLine />
 				<div className={styles['content-container']}>
 					<ControlsContainer>
-						<ActionButton Icon={<></>} onClick={() => {}} />
+						<ActionButton
+							Icon={<Icon icon={Icons.SAVE} />}
+							onClick={() => {}}
+						/>
 					</ControlsContainer>
 					<div className={styles['parser-container']}>
 						<PreviewParser />

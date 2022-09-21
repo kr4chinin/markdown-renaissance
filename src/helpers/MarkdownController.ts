@@ -16,6 +16,16 @@ class MarkdownController {
 		this._setMarkdown = markdownSetter
 	}
 
+    clear() {
+        if (!this._textareaRef) {
+            return
+        }
+
+        this._setTextareaValue('')
+        this._setMarkdown('')
+        this._textareaRef.focus()
+    }
+
 	// Insert bold / italic / link text template or make selected text bold / italic / link
 	handleInsert(option: 'bold' | 'italic' | 'link') {
 		if (!this._textareaRef) {
