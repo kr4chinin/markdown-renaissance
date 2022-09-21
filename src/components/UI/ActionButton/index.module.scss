@@ -1,0 +1,22 @@
+@import '../../../styles/utils/ColorPallete';
+
+.action-btn {
+	width: 36px;
+	height: 36px;
+
+    border: none;
+	border-radius: 50%;
+	background: $primary-button;
+	box-shadow: $primary-button-shadow;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: 19px;
+        height: 19px;
+
+        color: $primary-icon;
+    }
+}
