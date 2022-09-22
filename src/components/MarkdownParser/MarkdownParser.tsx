@@ -1,6 +1,6 @@
 import './index.scss'
 import '../../../node_modules/highlight.js/styles/base16/papercolor-light.css'
-import { FC, useCallback } from 'react'
+import { ForwardedRef, forwardRef, useCallback } from 'react'
 import { debounce } from '../../helpers/debounce'
 import { useMarkdownContext } from '../../context/MarkdownContext'
 import { handleUpdate } from '../../helpers/handleUpdateHighlight'
@@ -8,14 +8,12 @@ import { handleUpdate } from '../../helpers/handleUpdateHighlight'
 interface MarkdownParserProps {
 	textareaValue: string
 	setTextareaValue: (value: string) => void
-	setTextareaRef: (ref: HTMLTextAreaElement | null) => void
 }
 
-const MarkdownParser: FC<MarkdownParserProps> = ({
+const MarkdownParser = forwardRef(({
 	textareaValue,
-	setTextareaValue,
-	setTextareaRef
-}) => {
+	setTextareaValue
+}: MarkdownParserProps, ref: ForwardedRef<HTMLTextAreaElement>) => {
 	const { setMarkdown } = useMarkdownContext()
 
 	const handleChange = (value: string) => {
@@ -41,7 +39,7 @@ const MarkdownParser: FC<MarkdownParserProps> = ({
 			<textarea
 				id="editing"
 				value={textareaValue}
-				ref={setTextareaRef}
+				ref={ref}
 				onInput={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
 					handleSyncScroll(e.target)
 					handleUpdate(e.target.value)
@@ -63,6 +61,6 @@ const MarkdownParser: FC<MarkdownParserProps> = ({
 			</div>
 		</>
 	)
-}
+})
 
 export default MarkdownParser

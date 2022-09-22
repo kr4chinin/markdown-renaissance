@@ -5,7 +5,7 @@ import styles from './index.module.scss'
 import { Icon } from '@iconify/react'
 import ActionButton from '../ActionButton/ActionButton'
 import { Icons } from '../../../utils/Icons'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useMarkdownContext } from '../../../context/MarkdownContext'
 import MarkdownController from '../../../helpers/MarkdownController'
 import ControlsContainer from '../ControlsContainer/ControlsContainer'
@@ -14,7 +14,7 @@ import { handleUpdate } from '../../../helpers/handleUpdateHighlight'
 
 const MarkdownContainer = () => {
 	const [textareaValue, setTextareaValue] = useState('')
-	const [textareaRef, setTextareaRef] = useState<HTMLTextAreaElement | null>(
+	const textareaRef = useRef<HTMLTextAreaElement | null>(
 		null
 	)
 
@@ -23,7 +23,7 @@ const MarkdownContainer = () => {
 	const { setMarkdown } = useMarkdownContext()
 
 	const markdownController = new MarkdownController(
-		textareaRef,
+		textareaRef.current,
 		textareaValue,
 		setTextareaValue,
 		setMarkdown
@@ -37,9 +37,9 @@ const MarkdownContainer = () => {
 		let savedMarkdown = localStorage.getItem('md-renaissance-session')
 		if (savedMarkdown) {
 			setMarkdown(savedMarkdown)
-			if (textareaRef) {
+			if (textareaRef?.current) {
 				setTextareaValue(savedMarkdown)
-				textareaRef.value = savedMarkdown
+				textareaRef.current.value = savedMarkdown
 				handleUpdate(savedMarkdown)
 			}
 		}
@@ -82,7 +82,7 @@ const MarkdownContainer = () => {
 					<MarkdownParser
 						textareaValue={textareaValue}
 						setTextareaValue={setTextareaValue}
-						setTextareaRef={setTextareaRef}
+						ref={textareaRef}
 					/>
 				</div>
 			</div>
