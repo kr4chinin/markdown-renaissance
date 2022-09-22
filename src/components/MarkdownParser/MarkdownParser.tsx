@@ -4,6 +4,7 @@ import { ForwardedRef, forwardRef, useCallback, useEffect } from 'react'
 import { debounce } from '../../helpers/debounce'
 import { useMarkdownContext } from '../../context/MarkdownContext'
 import { handleUpdateHighlight } from '../../helpers/handleUpdateHighlight'
+import { initialMarkdownValue } from '../../utils/initialMarkdownValue'
 
 interface MarkdownParserProps {
 	textareaValue: string
@@ -13,7 +14,7 @@ interface MarkdownParserProps {
 const MarkdownParser = forwardRef(
 	(
 		{ textareaValue, setTextareaValue }: MarkdownParserProps,
-		ref: ForwardedRef<HTMLTextAreaElement>
+		ref: ForwardedRef<HTMLTextAreaElement | null>
 	) => {
 		const { setMarkdown } = useMarkdownContext()
 
@@ -34,6 +35,11 @@ const MarkdownParser = forwardRef(
 			resultElement.scrollTop = element.scrollTop
 			resultElement.scrollLeft = element.scrollLeft
 		}
+
+		useEffect(() => {
+			setTextareaValue(initialMarkdownValue)
+            setMarkdown(initialMarkdownValue)
+		}, [])
 
 		useEffect(() => {
 			handleUpdateHighlight(textareaValue)

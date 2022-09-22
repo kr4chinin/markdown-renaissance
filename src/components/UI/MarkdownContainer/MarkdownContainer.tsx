@@ -10,10 +10,9 @@ import { useMarkdownContext } from '../../../context/MarkdownContext'
 import MarkdownController from '../../../helpers/MarkdownController'
 import ControlsContainer from '../ControlsContainer/ControlsContainer'
 import HeadersDropdown from '../HeadersDropdown/HeadersDropdown'
-import { handleUpdateHighlight } from '../../../helpers/handleUpdateHighlight'
 
 const MarkdownContainer = () => {
-	const [textareaValue, setTextareaValue] = useState('**Welcome** to *markdown*!..')
+	const [textareaValue, setTextareaValue] = useState('')
 	const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
 	const [isHeaderDropdownOpen, setIsHeaderDropdownOpen] = useState(false)
