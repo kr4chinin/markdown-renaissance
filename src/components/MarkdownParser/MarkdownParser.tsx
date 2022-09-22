@@ -39,7 +39,7 @@ const MarkdownParser = forwardRef(
 		useEffect(() => {
 			setTextareaValue(initialMarkdownValue)
             setMarkdown(initialMarkdownValue)
-		}, [])
+		}, [setTextareaValue, setMarkdown])
 
 		useEffect(() => {
 			handleUpdateHighlight(textareaValue)
