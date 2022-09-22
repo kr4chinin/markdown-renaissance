@@ -2,7 +2,9 @@ import styles from './index.module.scss'
 import { Remarkable } from 'remarkable'
 import { useMarkdownContext } from '../../context/MarkdownContext'
 
-const md = new Remarkable()
+const md = new Remarkable({
+	linkTarget: '_blank'
+})
 
 const PreviewParser = () => {
 	const { markdown } = useMarkdownContext()
