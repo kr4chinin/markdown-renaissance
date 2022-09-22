@@ -22,7 +22,7 @@ const MarkdownParser: FC<MarkdownParserProps> = ({
 		setMarkdown(value)
 	}
 
-	const debouncedHandleChange = useCallback(debounce(handleChange, 300), [])
+	const debouncedHandleChange = useCallback(debounce(handleChange, 250), [])
 
 	function handleSyncScroll(element: HTMLElement) {
 		// Scroll result to scroll coords of event - sync with textarea

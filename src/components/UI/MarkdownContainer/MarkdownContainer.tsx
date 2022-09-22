@@ -5,11 +5,12 @@ import styles from './index.module.scss'
 import { Icon } from '@iconify/react'
 import ActionButton from '../ActionButton/ActionButton'
 import { Icons } from '../../../utils/Icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useMarkdownContext } from '../../../context/MarkdownContext'
 import MarkdownController from '../../../helpers/MarkdownController'
 import ControlsContainer from '../ControlsContainer/ControlsContainer'
 import HeadersDropdown from '../HeadersDropdown/HeadersDropdown'
+import { handleUpdate } from '../../../helpers/handleUpdateHighlight'
 
 const MarkdownContainer = () => {
 	const [textareaValue, setTextareaValue] = useState('')
@@ -30,6 +31,18 @@ const MarkdownContainer = () => {
 
 	function handleClear() {
 		markdownController.clear()
+	}
+
+	function handleRestoreSession() {
+		let savedMarkdown = localStorage.getItem('md-renaissance-session')
+		if (savedMarkdown) {
+			setMarkdown(savedMarkdown)
+			if (textareaRef) {
+				setTextareaValue(savedMarkdown)
+				textareaRef.value = savedMarkdown
+				handleUpdate(savedMarkdown)
+			}
+		}
 	}
 
 	return (
@@ -58,6 +71,10 @@ const MarkdownContainer = () => {
 					<ActionButton
 						Icon={<Icon icon={Icons.CLEAR} />}
 						onClick={handleClear}
+					/>
+					<ActionButton
+						Icon={<Icon icon={Icons.RESTORE_SESSION} />}
+						onClick={handleRestoreSession}
 					/>
 				</ControlsContainer>
 

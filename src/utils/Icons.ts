@@ -4,5 +4,7 @@ export enum Icons {
     HEADER = 'fa:header',
     LINK = 'fluent:link-edit-24-filled',
     CLEAR = 'ant-design:clear-outlined',
-    SAVE = 'ant-design:save-outlined'
+    SAVE = 'ant-design:save-outlined',
+    DELETE_SAVED = 'ep:document-delete',
+    RESTORE_SESSION = 'clarity:backup-restore-line'
 }
