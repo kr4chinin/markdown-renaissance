@@ -1,66 +1,72 @@
 import './index.scss'
 import '../../../node_modules/highlight.js/styles/base16/papercolor-light.css'
-import { ForwardedRef, forwardRef, useCallback } from 'react'
+import { ForwardedRef, forwardRef, useCallback, useEffect } from 'react'
 import { debounce } from '../../helpers/debounce'
 import { useMarkdownContext } from '../../context/MarkdownContext'
-import { handleUpdate } from '../../helpers/handleUpdateHighlight'
+import { handleUpdateHighlight } from '../../helpers/handleUpdateHighlight'
 
 interface MarkdownParserProps {
 	textareaValue: string
 	setTextareaValue: (value: string) => void
 }
 
-const MarkdownParser = forwardRef(({
-	textareaValue,
-	setTextareaValue
-}: MarkdownParserProps, ref: ForwardedRef<HTMLTextAreaElement>) => {
-	const { setMarkdown } = useMarkdownContext()
+const MarkdownParser = forwardRef(
+	(
+		{ textareaValue, setTextareaValue }: MarkdownParserProps,
+		ref: ForwardedRef<HTMLTextAreaElement>
+	) => {
+		const { setMarkdown } = useMarkdownContext()
 
-	const handleChange = (value: string) => {
-		setMarkdown(value)
-	}
-
-	const debouncedHandleChange = useCallback(debounce(handleChange, 250), [])
-
-	function handleSyncScroll(element: HTMLElement) {
-		// Scroll result to scroll coords of event - sync with textarea
-		let resultElement = document.querySelector('#highlighting')!
-
-		if (!(resultElement instanceof HTMLElement)) {
-			return
+		const handleChange = (value: string) => {
+			setMarkdown(value)
 		}
 
-		resultElement.scrollTop = element.scrollTop
-		resultElement.scrollLeft = element.scrollLeft
-	}
+		const debouncedHandleChange = useCallback(debounce(handleChange, 250), [])
 
-	return (
-		<>
-			<textarea
-				id="editing"
-				value={textareaValue}
-				ref={ref}
-				onInput={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
-					handleSyncScroll(e.target)
-					handleUpdate(e.target.value)
-				}}
-				onScroll={(e: React.UIEvent<HTMLTextAreaElement>) => {
-					if (e.target instanceof HTMLTextAreaElement) {
+		function handleSyncScroll(element: HTMLElement) {
+			// Scroll result to scroll coords of event - sync with textarea
+			let resultElement = document.querySelector('#highlighting')!
+
+			if (!(resultElement instanceof HTMLElement)) {
+				return
+			}
+
+			resultElement.scrollTop = element.scrollTop
+			resultElement.scrollLeft = element.scrollLeft
+		}
+
+		useEffect(() => {
+			handleUpdateHighlight(textareaValue)
+		}, [textareaValue])
+
+		return (
+			<>
+				<textarea
+					id="editing"
+					value={textareaValue}
+					ref={ref}
+					onInput={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
 						handleSyncScroll(e.target)
-					}
-				}}
-				onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
-					debouncedHandleChange(e.target.value)
-					setTextareaValue(e.target.value)
-				}}
-				placeholder="Enter markdown..."
-			/>
+						handleUpdateHighlight(e.target.value)
+					}}
+					onScroll={(e: React.UIEvent<HTMLTextAreaElement>) => {
+						if (e.target instanceof HTMLTextAreaElement) {
+							handleSyncScroll(e.target)
+						}
+					}}
+					onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+						debouncedHandleChange(e.target.value)
+						setTextareaValue(e.target.value)
+					}}
+					placeholder="Enter markdown..."
+				/>
 
-			<div id="highlighting" aria-hidden="true">
-				<code className="language-markdown" id="highlighting-content"></code>
-			</div>
-		</>
-	)
-})
+				<div id="highlighting" aria-hidden="true">
+					<code className="language-markdown" id="highlighting-content"></code>
+				</div>
+			</>
+		)
+	}
+)
 
 export default MarkdownParser

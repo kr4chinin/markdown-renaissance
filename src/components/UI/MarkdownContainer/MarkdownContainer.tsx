@@ -5,18 +5,16 @@ import styles from './index.module.scss'
 import { Icon } from '@iconify/react'
 import ActionButton from '../ActionButton/ActionButton'
 import { Icons } from '../../../utils/Icons'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useMarkdownContext } from '../../../context/MarkdownContext'
 import MarkdownController from '../../../helpers/MarkdownController'
 import ControlsContainer from '../ControlsContainer/ControlsContainer'
 import HeadersDropdown from '../HeadersDropdown/HeadersDropdown'
-import { handleUpdate } from '../../../helpers/handleUpdateHighlight'
+import { handleUpdateHighlight } from '../../../helpers/handleUpdateHighlight'
 
 const MarkdownContainer = () => {
-	const [textareaValue, setTextareaValue] = useState('')
-	const textareaRef = useRef<HTMLTextAreaElement | null>(
-		null
-	)
+	const [textareaValue, setTextareaValue] = useState('**Welcome** to *markdown*!..')
+	const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
 	const [isHeaderDropdownOpen, setIsHeaderDropdownOpen] = useState(false)
 
@@ -40,7 +38,6 @@ const MarkdownContainer = () => {
 			if (textareaRef?.current) {
 				setTextareaValue(savedMarkdown)
 				textareaRef.current.value = savedMarkdown
-				handleUpdate(savedMarkdown)
 			}
 		}
 	}

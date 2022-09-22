@@ -1,6 +1,6 @@
 import hljs from "highlight.js"
 
-export function handleUpdate(text: string) {
+export function handleUpdateHighlight(text: string) {
 	let resultElement = document.querySelector('#highlighting-content')!
 
 	if (!(resultElement instanceof HTMLElement)) {
