@@ -10,11 +10,14 @@ import { useMarkdownContext } from '../../../context/MarkdownContext'
 import MarkdownController from '../../../helpers/MarkdownController'
 import ControlsContainer from '../ControlsContainer/ControlsContainer'
 import HeadersDropdown from '../HeadersDropdown/HeadersDropdown'
+import download from 'react-useanimations/lib/download'
+import UseAnimations from 'react-useanimations'
+import { animatedIconsPrimaryColor } from '../../../utils/consts'
 
 const MarkdownContainer = () => {
-	const [textareaValue, setTextareaValue] = useState('')
 	const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
+	const [textareaValue, setTextareaValue] = useState('')
 	const [isHeaderDropdownOpen, setIsHeaderDropdownOpen] = useState(false)
 
 	const { setMarkdown } = useMarkdownContext()
@@ -69,7 +72,13 @@ const MarkdownContainer = () => {
 						onClick={handleClear}
 					/>
 					<ActionButton
-						Icon={<Icon icon={Icons.RESTORE_SESSION} />}
+						Icon={
+							<UseAnimations
+								animation={download}
+								strokeColor={animatedIconsPrimaryColor}
+                                fillColor='#d1d1d1'
+							/>
+						}
 						onClick={handleRestoreSession}
 					/>
 				</ControlsContainer>

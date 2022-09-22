@@ -1,6 +1,4 @@
-import { Icon } from '@iconify/react'
 import { useMarkdownContext } from '../../../context/MarkdownContext'
-import { Icons } from '../../../utils/Icons'
 import { useState } from 'react'
 import PreviewParser from '../../PreviewParser/PreviewParser'
 import ActionButton from '../ActionButton/ActionButton'
@@ -11,6 +9,7 @@ import styles from './index.module.scss'
 import plusToX from 'react-useanimations/lib/plusToX'
 import trash from 'react-useanimations/lib/trash'
 import UseAnimations from 'react-useanimations'
+import { animatedIconsPrimaryColor } from '../../../utils/consts'
 
 const PreviewContainer = () => {
 	const { markdown } = useMarkdownContext()
@@ -31,16 +30,27 @@ const PreviewContainer = () => {
 			<div className={styles['content-container']}>
 				<ControlsContainer>
 					<ActionButton
-						Icon={<UseAnimations animation={trash} size={22}/>}
+						Icon={
+							<UseAnimations
+								animation={trash}
+								size={22}
+								strokeColor={animatedIconsPrimaryColor}
+							/>
+						}
 						onClick={handleDeleteSession}
 					/>
 					<ActionButton
-						Icon={<UseAnimations animation={plusToX} />}
+						Icon={
+							<UseAnimations
+								animation={plusToX}
+								strokeColor={animatedIconsPrimaryColor}
+							/>
+						}
 						onClick={() => {
-                            setIsSavedActive(prev => !prev)
-                            isSavedActive ? handleDeleteSession() : handleSaveSession()
-                        }}
-                        isActive={isSavedActive}
+							setIsSavedActive(prev => !prev)
+							isSavedActive ? handleDeleteSession() : handleSaveSession()
+						}}
+						isActive={isSavedActive}
 					/>
 				</ControlsContainer>
 				<div className={styles['parser-container']}>
