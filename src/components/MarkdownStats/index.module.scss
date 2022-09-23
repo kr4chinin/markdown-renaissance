@@ -1,0 +1,33 @@
+@import '../../assets/fonts/AmericanTypewriterRegular';
+@import '../../styles/utils/ColorPallete';
+
+.container {
+	font-family: 'American Typewriter', sans-serif;
+	display: flex;
+
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    font-size: 16px;
+
+    svg {
+        color: $primary-icon;
+
+        width: 28px;
+        height: 28px;
+    }
+
+    span {
+        font-weight: 700;
+    }
+
+    .info {
+        display: flex;
+    }
+}

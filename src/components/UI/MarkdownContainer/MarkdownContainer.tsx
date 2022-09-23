@@ -13,6 +13,7 @@ import HeadersDropdown from '../HeadersDropdown/HeadersDropdown'
 import download from 'react-useanimations/lib/download'
 import UseAnimations from 'react-useanimations'
 import { animatedIconsPrimaryColor } from '../../../utils/consts'
+import MarkdownStats from '../../MarkdownStats/MarkdownStats'
 
 const MarkdownContainer = () => {
 	const textareaRef = useRef<HTMLTextAreaElement | null>(null)
@@ -96,7 +97,9 @@ const MarkdownContainer = () => {
 					/>
 				</div>
 			</div>
-			<div className={styles['stats-container']}></div>
+			<div className={styles['stats-container']}>
+                <MarkdownStats />
+            </div>
 		</div>
 	)
 }
