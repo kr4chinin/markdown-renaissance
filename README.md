@@ -16,6 +16,7 @@ all basic functionality to comfortably write markdown text on **laptops** and **
 * You can **store** your session in your browser's local storage and **restore** it later on to continue work
 * **Characters** and **words** calculation, ability to hide it
 * You can either show or hide markdown preview (it is hidden on the first render to increase TTI)
+* Amazing dark theme
 
 App is also highly usable on mobile devices:
 
