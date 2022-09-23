@@ -10,7 +10,7 @@ all basic functionality to comfortably write markdown text on **laptops** and **
 
 ### Functionality
 
-* **Text-highlighting** while writing markdown, ability to **preview** your markdown notes
+* **Text highlighting** while writing markdown, ability to **preview** your markdown notes
 * **Debounced** text parsing for higher perfomance, preview **lazy-loading**
 * Ability to press button and insert most common markdown **presets** (bold, italic text, header or link) or to clear screen
 * You can **store** your session in your browser's local storage and **restore** it later on to continue work
