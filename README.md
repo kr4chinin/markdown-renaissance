@@ -20,12 +20,12 @@ all basic functionality to comfortably write markdown text on **laptops** and **
 
 App is also highly usable on mobile devices:
 
-<img width="425" alt="Mobile view" src="https://user-images.githubusercontent.com/103210607/192011973-95ce0eed-b31b-4f74-ad7c-742460920022.png">
+<img width="425" alt="Mobile main screen view" src="https://user-images.githubusercontent.com/103210607/192011973-95ce0eed-b31b-4f74-ad7c-742460920022.png">
 
 ### Tech stack
 
 * React + TypeScript
-* Vite
+* [Vite](https://vitejs.dev)
 * SASS
 * [highlight.js](https://highlightjs.org) for text highlighting
 * [remarkable](https://www.npmjs.com/package/remarkable) for markdown parsing
