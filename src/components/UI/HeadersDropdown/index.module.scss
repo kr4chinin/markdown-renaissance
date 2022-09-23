@@ -1,37 +1,36 @@
 @import '../../../styles/utils/ColorPallete';
 
 .trigger {
-    z-index: 2;
+	z-index: 2;
 
-    width: 36px;
+	width: 36px;
 	height: 36px;
 
-    border: none;
+	border: none;
 	border-radius: 50%;
 	background: $primary-button;
 	box-shadow: $primary-button-shadow;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-    &:hover {
-        cursor: pointer;
-        transform: translateY(2px);
-    }
+	&:hover {
+		cursor: pointer;
+		transform: translateY(2px);
+	}
 
-    svg {
-        width: 19px;
-        height: 19px;
+	svg {
+		width: 19px;
+		height: 19px;
 
-        color: $primary-icon;
-        pointer-events: none;
-    }
+		color: $primary-icon;
+		pointer-events: none;
+	}
 
-    transition: 500ms;
+	transition: 500ms;
 
 	.dropdown {
-
 		position: absolute;
 		width: 59px;
 		height: 266px;
@@ -42,10 +41,10 @@
 
 		border-radius: 15px;
 
-        transform: translateY(60%);
+		transform: translateY(60%);
 
 		.menu {
-            // parentWidth - 2px (shadow)
+			// parentWidth - 2px (shadow)
 			width: 57px;
 			height: 264px;
 
@@ -61,7 +60,6 @@
 			background: #1defe1;
 			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
 			border-radius: 15px;
-
 		}
 
 		.menu.active {
@@ -81,15 +79,15 @@
 	background: $dark-button;
 	box-shadow: $dark-button-shadow;
 
-    &:hover {
-        cursor: pointer;
-        filter: brightness(1.1);
-        transform: translateY(2px);
-    }
+	&:hover {
+		cursor: pointer;
+		filter: brightness(1.1);
+		transform: translateY(2px);
+	}
 
-    svg {
-        color: $dark-icon;
-    }
+	svg {
+		color: $dark-icon;
+	}
 
 	.dropdown {
 		.menu {

@@ -18,8 +18,8 @@ const PreviewParser = lazy(() => import('../../PreviewParser/PreviewParser'))
 
 const PreviewContainer = () => {
 	const { isDark } = useThemeContext()
-
 	const { markdown } = useMarkdownContext()
+    
 	const [showPreview, setShowPreview] = useState(false)
 	const [isSavedActive, setIsSavedActive] = useState(false)
 

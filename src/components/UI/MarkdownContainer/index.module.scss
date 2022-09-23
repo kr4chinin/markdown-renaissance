@@ -13,17 +13,17 @@
 		box-shadow: $primary-shadow;
 		border-radius: 15px;
 
-        .parser-container {
-            width: 100%;
-            height: calc(100% - 80px);
+		.parser-container {
+			width: 100%;
+			height: calc(100% - 80px);
 
-            position: relative;
-        }
+			position: relative;
+		}
 	}
 
-    // Dark theme
-    .content-container.dark {
-        background-color: $dark;
-        box-shadow: $dark-shadow;
-    }
+	// Dark theme
+	.content-container.dark {
+		background-color: $dark;
+		box-shadow: $dark-shadow;
+	}
 }

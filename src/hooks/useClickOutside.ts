@@ -14,7 +14,7 @@ export function useClickOutside(
 			if (triggerRef?.current && triggerRef.current.children) {
 				for (let i = 0; i < triggerRef.current.children.length; i++) {
 					if (e.target === triggerRef.current.children[i]) {
-                        return
+						return
 					}
 				}
 			}

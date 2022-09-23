@@ -1,31 +1,31 @@
 @import '../../../styles/utils/ColorPallete';
 
 .container {
-    display: flex;
-    align-items: center;
-    width: 100%;
+	display: flex;
+	align-items: center;
+	width: 100%;
 
-    hr {
-        width: 42%;
-        
-        border: 1px solid #69707D;
-    }
+	hr {
+		width: 42%;
 
-    svg {
-        width: 12%;
-        margin: 0 2% 0 2%;
-    }
+		border: 1px solid #69707d;
+	}
 
-    transition: 500ms;
+	svg {
+		width: 12%;
+		margin: 0 2% 0 2%;
+	}
+
+	transition: 500ms;
 }
 
 // Dark theme
 .container.dark {
-    hr {
-        border: 1px solid rgb(80, 73, 73);
-    }
+	hr {
+		border: 1px solid rgb(80, 73, 73);
+	}
 
-    svg {
-        stroke: $dark-icon;
-    }
+	svg {
+		stroke: $dark-icon;
+	}
 }

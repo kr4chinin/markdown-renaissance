@@ -14,44 +14,43 @@
 		box-shadow: $primary-shadow;
 		border-radius: 15px;
 
-        .parser-container {
-            width: 100%;
-            height: calc(100% - 90px);
-            
-            padding: 20px;
+		.parser-container {
+			width: 100%;
+			height: calc(100% - 90px);
 
-            overflow: scroll;
-        }
+			padding: 20px;
+
+			overflow: scroll;
+		}
 	}
 
-    .stats-container {
-        display: flex;
-        align-items: center;
-        margin-top: 15px;
-        gap: 10px;
+	.stats-container {
+		display: flex;
+		align-items: center;
+		margin-top: 15px;
+		gap: 10px;
 
-        font-family: 'American Typewriter', sans-serif;
-        font-size: 16px;
-    }
+		font-family: 'American Typewriter', sans-serif;
+		font-size: 16px;
+	}
 }
 
 // Dark theme
 .container.dark {
+	.content-container {
+		background-color: $dark;
+		box-shadow: $dark-shadow;
+	}
 
-    .content-container {
-        background-color: $dark;
-        box-shadow: $dark-shadow;
-    }
-
-    .stats-container {
-        color: $dark-font;
-    }
+	.stats-container {
+		color: $dark-font;
+	}
 }
 
 // Adaptive layout
 
 @media (max-width: 1050px) {
-    .container {
-        margin-bottom: 20px;
-    }
+	.container {
+		margin-bottom: 20px;
+	}
 }

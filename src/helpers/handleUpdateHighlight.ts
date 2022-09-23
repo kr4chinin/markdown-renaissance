@@ -1,4 +1,4 @@
-import hljs from "highlight.js"
+import hljs from 'highlight.js'
 
 export function handleUpdateHighlight(text: string) {
 	let resultElement = document.querySelector('#highlighting-content')!

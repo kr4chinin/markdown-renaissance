@@ -4,10 +4,10 @@ import { useThemeContext } from '../../../context/ThemeContext'
 import { memo } from 'react'
 
 const BreakLine = () => {
-    const {isDark} = useThemeContext()
+	const { isDark } = useThemeContext()
 
 	return (
-		<div className={cn(styles.container, {[styles.dark]: isDark})}>
+		<div className={cn(styles.container, { [styles.dark]: isDark })}>
 			<hr />
 
 			<svg
@@ -26,7 +26,7 @@ const BreakLine = () => {
 				></path>
 			</svg>
 
-            <hr />
+			<hr />
 		</div>
 	)
 }

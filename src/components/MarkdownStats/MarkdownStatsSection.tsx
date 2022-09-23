@@ -17,6 +17,7 @@ const MarkdownStatsSection: FC<MarkdownStatsSectionProps> = ({
 	children
 }) => {
 	const { isDark } = useThemeContext()
+    
 	const [isShown, setIsShown] = useState(true)
 
 	function toggle() {

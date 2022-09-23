@@ -18,14 +18,13 @@ import cn from 'classnames'
 import { useThemeContext } from '../../../context/ThemeContext'
 
 const MarkdownContainer = () => {
+    const { setMarkdown } = useMarkdownContext()
 	const { isDark } = useThemeContext()
 
 	const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
 	const [textareaValue, setTextareaValue] = useState('')
 	const [isHeaderDropdownOpen, setIsHeaderDropdownOpen] = useState(false)
-
-	const { setMarkdown } = useMarkdownContext()
 
 	const markdownController = new MarkdownController(
 		textareaRef.current,

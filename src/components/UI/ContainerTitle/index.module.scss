@@ -20,9 +20,9 @@
 	font-weight: 350;
 	line-height: 36px;
 
-    font-size: 19px;
-    color: $primary-font;
-    
+	font-size: 19px;
+	color: $primary-font;
+
 	svg {
 		height: 26px;
 		width: 26px;
@@ -31,12 +31,12 @@
 
 // Dark theme
 .container.dark {
-    background-color: $dark;
-    box-shadow: $dark-shadow;
+	background-color: $dark;
+	box-shadow: $dark-shadow;
 
-    color: $dark-font;
+	color: $dark-font;
 
-    svg {
-        color: $dark-icon;
-    }
+	svg {
+		color: $dark-icon;
+	}
 }

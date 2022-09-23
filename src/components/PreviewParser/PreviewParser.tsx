@@ -9,12 +9,12 @@ const md = new Remarkable({
 })
 
 const PreviewParser = () => {
-    const {isDark} = useThemeContext()
+	const { isDark } = useThemeContext()
 	const { markdown } = useMarkdownContext()
 
 	return (
 		<pre
-			className={cn(styles.container, {[styles.dark]: isDark})}
+			className={cn(styles.container, { [styles.dark]: isDark })}
 			dangerouslySetInnerHTML={{ __html: md.render(markdown) }}
 		/>
 	)

@@ -3,8 +3,8 @@
 // Tooltip selector
 [data-reach-tooltip] {
 	width: fit-content;
-    height: 24px;
-    padding: 0.5em;
+	height: 24px;
+	padding: 0.5em;
 
 	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 	border-radius: 5px;
@@ -45,16 +45,16 @@
 	filter: brightness(0.9);
 }
 
-// Dark theme 
+// Dark theme
 .action-btn.dark {
-    background: $dark-button;
-    box-shadow: $dark-button-shadow;
+	background: $dark-button;
+	box-shadow: $dark-button-shadow;
 
-    svg {
-        color: $dark-icon;
-    }
+	svg {
+		color: $dark-icon;
+	}
 
-    &:hover {
-        filter: brightness(1.1);
-    }
+	&:hover {
+		filter: brightness(1.1);
+	}
 }

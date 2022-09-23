@@ -23,11 +23,14 @@ const ActionButton: FC<ActionButtonProps> = ({
 	// If user specified tooltipTitle, then show tooltip
 	if (tooltipTitle) {
 		return (
-			<Tooltip label={tooltipTitle} style={{
-                backgroundColor: isDark ? '#3a4f4d' : '',
-                border: isDark ? '1px solid #533c3c' : '',
-                color: isDark ? '#95a59f' : ''
-            }}>
+			<Tooltip
+				label={tooltipTitle}
+				style={{
+					backgroundColor: isDark ? '#3a4f4d' : '',
+					border: isDark ? '1px solid #533c3c' : '',
+					color: isDark ? '#95a59f' : ''
+				}}
+			>
 				<button
 					className={cn(
 						styles['action-btn'],

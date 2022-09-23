@@ -1,11 +1,6 @@
 import './index.scss'
 import '../../../node_modules/highlight.js/styles/base16/papercolor-light.css'
-import {
-	ForwardedRef,
-	forwardRef,
-	useCallback,
-	useEffect
-} from 'react'
+import { ForwardedRef, forwardRef, useCallback, useEffect } from 'react'
 import { debounce } from '../../helpers/debounce'
 import { useMarkdownContext } from '../../context/MarkdownContext'
 import { handleUpdateHighlight } from '../../helpers/handleUpdateHighlight'
@@ -23,7 +18,6 @@ const MarkdownParser = forwardRef(
 		ref: ForwardedRef<HTMLTextAreaElement | null>
 	) => {
 		const { isDark } = useThemeContext()
-
 		const { setMarkdown } = useMarkdownContext()
 
 		const handleChange = (value: string) => {

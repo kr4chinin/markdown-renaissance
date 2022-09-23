@@ -6,25 +6,24 @@ import styles from './styles/App.module.scss'
 import cn from 'classnames'
 
 const App = () => {
+	const { isDark } = useThemeContext()
 
-    const {isDark} = useThemeContext()
-
-    if (isDark) {
-        document.body.style.backgroundColor = '#1d2724'
-    } else {
-        document.body.style.backgroundColor = 'whitesmoke'
-    }
+	if (isDark) {
+		document.body.style.backgroundColor = '#1d2724'
+	} else {
+		document.body.style.backgroundColor = 'whitesmoke'
+	}
 
 	return (
-        <div className={cn(styles.container, {[styles.dark]: isDark})}>
-            <Navbar />
-            <h1 className={styles.title}>Markdown Renaissance</h1>
-            <div className={styles.content}>
-                <MarkdownContainer />
-                <PreviewContainer />
-            </div>
-        </div>
-    )
+		<div className={cn(styles.container, { [styles.dark]: isDark })}>
+			<Navbar />
+			<h1 className={styles.title}>Markdown Renaissance</h1>
+			<div className={styles.content}>
+				<MarkdownContainer />
+				<PreviewContainer />
+			</div>
+		</div>
+	)
 }
 
 export default App
