@@ -1,36 +1,46 @@
 @import '../../../styles/utils/ColorPallete';
 
+// Tooltip selector
+[data-reach-tooltip] {
+	width: fit-content;
+    height: 24px;
+    padding: 0.5em;
+
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+	border-radius: 5px;
+}
+
 .action-btn {
 	width: 36px;
 	height: 36px;
 
-    border: none;
+	border: none;
 	border-radius: 50%;
 	background: $primary-button;
 	box-shadow: $primary-button-shadow;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-    svg {
-        width: 19px;
-        height: 19px;
+	svg {
+		width: 19px;
+		height: 19px;
 
-        color: $primary-icon;
-    }
+		color: $primary-icon;
+	}
 
-    transition: 500ms;
+	transition: 500ms;
 
-    &:hover {
-        cursor: pointer;
-        transform: translateY(2px);
-        scale: 1.05;
+	&:hover {
+		cursor: pointer;
+		transform: translateY(2px);
+		scale: 1.05;
 
-        filter: brightness(0.9);
-    }
+		filter: brightness(0.9);
+	}
 }
 
 .action-btn.active {
-    filter: brightness(0.9);
+	filter: brightness(0.9);
 }

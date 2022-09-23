@@ -51,10 +51,12 @@ const MarkdownContainer = () => {
 			<div className={styles['content-container']}>
 				<ControlsContainer>
 					<ActionButton
+						tooltipTitle="Bold"
 						Icon={<Icon icon={Icons.BOLD} />}
 						onClick={() => markdownController.handleInsert('bold')}
 					/>
 					<ActionButton
+						tooltipTitle="Italic"
 						Icon={<Icon icon={Icons.ITALIC} />}
 						onClick={() => markdownController.handleInsert('italic')}
 					/>
@@ -64,19 +66,22 @@ const MarkdownContainer = () => {
 						setIsShown={setIsHeaderDropdownOpen}
 					/>
 					<ActionButton
+						tooltipTitle="Link"
 						Icon={<Icon icon={Icons.LINK} />}
 						onClick={() => markdownController.handleInsert('link')}
 					/>
 					<ActionButton
+						tooltipTitle="Clear"
 						Icon={<Icon icon={Icons.CLEAR} />}
 						onClick={handleClear}
 					/>
 					<ActionButton
+						tooltipTitle="Restore session"
 						Icon={
 							<UseAnimations
 								animation={download}
 								strokeColor={animatedIconsPrimaryColor}
-                                fillColor='#d1d1d1'
+								fillColor="#d1d1d1"
 							/>
 						}
 						onClick={handleRestoreSession}

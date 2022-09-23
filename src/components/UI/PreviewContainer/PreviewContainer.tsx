@@ -30,6 +30,7 @@ const PreviewContainer = () => {
 			<div className={styles['content-container']}>
 				<ControlsContainer>
 					<ActionButton
+						tooltipTitle="Delete session"
 						Icon={
 							<UseAnimations
 								animation={trash}
@@ -40,6 +41,7 @@ const PreviewContainer = () => {
 						onClick={handleDeleteSession}
 					/>
 					<ActionButton
+						tooltipTitle={isSavedActive ? 'Delete session' : 'Save session'}
 						Icon={
 							<UseAnimations
 								animation={plusToX}
