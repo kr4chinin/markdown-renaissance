@@ -6,4 +6,5 @@ export enum Icons {
     CLEAR = 'ant-design:clear-outlined',
     WORDS = 'codicon:whole-word',
     CHARACTERS = 'mdi:format-letter-case',
+    THEME = 'emojione-monotone:waning-crescent-moon'
 }

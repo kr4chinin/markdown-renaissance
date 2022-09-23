@@ -1,0 +1,31 @@
+@import '../../../styles/utils/ColorPallete';
+
+.navbar-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 60px;
+	height: 60px;
+
+	border: none;
+	border-radius: 50%;
+
+	background: $primary-navbar-button;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+
+	svg {
+		height: 30px;
+		width: 30px;
+
+		color: $primary-icon;
+	}
+
+	transition: 500ms;
+
+	&:hover {
+		cursor: pointer;
+		filter: brightness(0.9);
+        transform: translateY(2px);
+	}
+}
