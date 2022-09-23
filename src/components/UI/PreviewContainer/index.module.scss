@@ -1,9 +1,10 @@
 @import '../../../styles/utils/ColorPallete';
+@import '../../../assets/fonts/AmericanTypewriterRegular';
 
 .container {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 
 	.content-container {
 		width: 464px;
@@ -22,4 +23,14 @@
             overflow: scroll;
         }
 	}
+
+    .stats-container {
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+        gap: 10px;
+
+        font-family: 'American Typewriter', sans-serif;
+        font-size: 16px;
+    }
 }

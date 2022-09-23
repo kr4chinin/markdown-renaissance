@@ -1,6 +1,5 @@
 import { useMarkdownContext } from '../../../context/MarkdownContext'
-import { useState } from 'react'
-import PreviewParser from '../../PreviewParser/PreviewParser'
+import { lazy, Suspense, useState } from 'react'
 import ActionButton from '../ActionButton/ActionButton'
 import BreakLine from '../BreakLine/BreakLine'
 import ContainerTitle from '../ContainerTitle/ContainerTitle'
@@ -10,17 +9,26 @@ import plusToX from 'react-useanimations/lib/plusToX'
 import trash from 'react-useanimations/lib/trash'
 import UseAnimations from 'react-useanimations'
 import { animatedIconsPrimaryColor } from '../../../utils/consts'
+import UseAnimaitons from 'react-useanimations'
+import checkbox from 'react-useanimations/lib/checkbox'
+
+const PreviewParser = lazy(() => import('../../PreviewParser/PreviewParser'))
 
 const PreviewContainer = () => {
 	const { markdown } = useMarkdownContext()
+	const [showPreview, setShowPreview] = useState(false)
 	const [isSavedActive, setIsSavedActive] = useState(false)
 
-	function handleSaveSession(): void {
+	function handleSaveSession() {
 		localStorage.setItem('md-renaissance-session', markdown)
 	}
 
 	function handleDeleteSession() {
 		localStorage.removeItem('md-renaissance-session')
+	}
+
+	function toggleShowPreview() {
+		setShowPreview(prev => !prev)
 	}
 
 	return (
@@ -56,10 +64,21 @@ const PreviewContainer = () => {
 					/>
 				</ControlsContainer>
 				<div className={styles['parser-container']}>
-					<PreviewParser />
+					{showPreview && (
+						<Suspense fallback='Loading...'>
+							<PreviewParser />
+						</Suspense>
+					)}
 				</div>
 			</div>
-			<div className={styles['stats-container']}></div>
+			<div className={styles['stats-container']}>
+				<ActionButton
+					isActive={showPreview}
+					Icon={<UseAnimaitons animation={checkbox} speed={2} />}
+					onClick={toggleShowPreview}
+				/>
+				<p>Show preview</p>
+			</div>
 		</div>
 	)
 }
