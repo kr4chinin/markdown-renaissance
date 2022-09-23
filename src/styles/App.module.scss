@@ -32,9 +32,26 @@
 
 // Dark theme
 .container.dark {
-    background-color: $dark;
-
     .title {
         color: $dark-font;
+    }
+}
+
+// Adaptive layout
+
+@media (max-width: 1050px) {
+    .container {
+        .content {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        transform: scale(0.7);
+        margin-top: -100px;
     }
 }
