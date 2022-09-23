@@ -5,29 +5,39 @@
 	font-family: 'American Typewriter', sans-serif;
 	display: flex;
 
-    margin-top: 15px;
-    gap: 10px;
+	margin-top: 15px;
+	gap: 10px;
 }
 
 .section {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+	display: flex;
+	align-items: center;
+	gap: 5px;
 
-    font-size: 16px;
+	font-size: 16px;
 
-    svg {
-        color: $primary-icon;
+	svg {
+		color: $primary-icon;
 
-        width: 28px;
-        height: 28px;
-    }
+		width: 28px;
+		height: 28px;
+	}
 
-    span {
-        font-weight: 700;
-    }
+	span {
+		font-weight: 700;
+	}
 
-    .info {
-        display: flex;
-    }
+	.info {
+		display: flex;
+	}
+}
+
+// Dark theme
+
+.section.dark {
+    color: $dark-font;
+
+	svg {
+		color: $dark-icon;
+	}
 }

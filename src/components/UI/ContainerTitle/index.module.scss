@@ -28,3 +28,15 @@
 		width: 26px;
 	}
 }
+
+// Dark theme
+.container.dark {
+    background-color: $dark;
+    box-shadow: $dark-shadow;
+
+    color: $dark-font;
+
+    svg {
+        color: $dark-icon;
+    }
+}

@@ -11,10 +11,14 @@ import UseAnimations from 'react-useanimations'
 import { animatedIconsPrimaryColor } from '../../../utils/consts'
 import UseAnimaitons from 'react-useanimations'
 import checkbox from 'react-useanimations/lib/checkbox'
+import cn from 'classnames'
+import { useThemeContext } from '../../../context/ThemeContext'
 
 const PreviewParser = lazy(() => import('../../PreviewParser/PreviewParser'))
 
 const PreviewContainer = () => {
+	const { isDark } = useThemeContext()
+
 	const { markdown } = useMarkdownContext()
 	const [showPreview, setShowPreview] = useState(false)
 	const [isSavedActive, setIsSavedActive] = useState(false)
@@ -32,7 +36,7 @@ const PreviewContainer = () => {
 	}
 
 	return (
-		<div className={styles.container}>
+		<div className={cn(styles.container, { [styles.dark]: isDark })}>
 			<ContainerTitle title="Preview" />
 			<BreakLine />
 			<div className={styles['content-container']}>
@@ -43,7 +47,7 @@ const PreviewContainer = () => {
 							<UseAnimations
 								animation={trash}
 								size={22}
-								strokeColor={animatedIconsPrimaryColor}
+								strokeColor={isDark ? '#5c6361' : animatedIconsPrimaryColor}
 							/>
 						}
 						onClick={handleDeleteSession}
@@ -53,7 +57,7 @@ const PreviewContainer = () => {
 						Icon={
 							<UseAnimations
 								animation={plusToX}
-								strokeColor={animatedIconsPrimaryColor}
+								strokeColor={isDark ? '#5c6361' : animatedIconsPrimaryColor}
 							/>
 						}
 						onClick={() => {
@@ -65,7 +69,7 @@ const PreviewContainer = () => {
 				</ControlsContainer>
 				<div className={styles['parser-container']}>
 					{showPreview && (
-						<Suspense fallback='Loading...'>
+						<Suspense fallback="Loading...">
 							<PreviewParser />
 						</Suspense>
 					)}
@@ -74,7 +78,13 @@ const PreviewContainer = () => {
 			<div className={styles['stats-container']}>
 				<ActionButton
 					isActive={showPreview}
-					Icon={<UseAnimaitons animation={checkbox} speed={2} />}
+					Icon={
+						<UseAnimaitons
+							animation={checkbox}
+							speed={2}
+							strokeColor={isDark ? '#5c6361' : animatedIconsPrimaryColor}
+						/>
+					}
 					onClick={toggleShowPreview}
 				/>
 				<p>Show preview</p>

@@ -1,10 +1,17 @@
 import './index.scss'
 import '../../../node_modules/highlight.js/styles/base16/papercolor-light.css'
-import { ForwardedRef, forwardRef, useCallback, useEffect } from 'react'
+import {
+	ForwardedRef,
+	forwardRef,
+	useCallback,
+	useContext,
+	useEffect
+} from 'react'
 import { debounce } from '../../helpers/debounce'
 import { useMarkdownContext } from '../../context/MarkdownContext'
 import { handleUpdateHighlight } from '../../helpers/handleUpdateHighlight'
 import { initialMarkdownValue } from '../../utils/initialMarkdownValue'
+import { useThemeContext } from '../../context/ThemeContext'
 
 interface MarkdownParserProps {
 	textareaValue: string
@@ -16,6 +23,8 @@ const MarkdownParser = forwardRef(
 		{ textareaValue, setTextareaValue }: MarkdownParserProps,
 		ref: ForwardedRef<HTMLTextAreaElement | null>
 	) => {
+		const { isDark } = useThemeContext()
+
 		const { setMarkdown } = useMarkdownContext()
 
 		const handleChange = (value: string) => {
@@ -38,7 +47,7 @@ const MarkdownParser = forwardRef(
 
 		useEffect(() => {
 			setTextareaValue(initialMarkdownValue)
-            setMarkdown(initialMarkdownValue)
+			setMarkdown(initialMarkdownValue)
 		}, [setTextareaValue, setMarkdown])
 
 		useEffect(() => {
@@ -48,6 +57,7 @@ const MarkdownParser = forwardRef(
 		return (
 			<>
 				<textarea
+					className={isDark ? 'dark' : ''}
 					id="editing"
 					value={textareaValue}
 					ref={ref}
@@ -67,8 +77,20 @@ const MarkdownParser = forwardRef(
 					placeholder="Enter markdown..."
 				/>
 
-				<div id="highlighting" aria-hidden="true">
-					<code className="language-markdown" id="highlighting-content"></code>
+				<div
+					id="highlighting"
+					aria-hidden="true"
+					style={{
+						background: isDark ? '#1a1d1b' : ''
+					}}
+				>
+					<code
+						className="language-markdown"
+						id="highlighting-content"
+						style={{
+							background: isDark ? '#1a1d1b' : ''
+						}}
+					></code>
 				</div>
 			</>
 		)

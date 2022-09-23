@@ -29,3 +29,17 @@
         transform: translateY(2px);
 	}
 }
+
+// Dark theme
+.navbar-btn.dark {
+    background: $dark-navbar-button;
+    box-shadow: $dark-button-shadow;
+
+    svg {
+        color: $dark-icon;
+    }
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+}

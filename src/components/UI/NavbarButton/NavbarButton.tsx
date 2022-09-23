@@ -9,12 +9,12 @@ interface NavbarButtonProps {
 }
 
 const NavbarButton: FC<NavbarButtonProps> = ({ Icon, onClick }) => {
-	const { theme } = useThemeContext()
+	const { isDark } = useThemeContext()
 
 	return (
 		<button
 			onClick={onClick}
-			className={cn(styles['navbar-btn'], { [styles.dark]: theme === 'dark' })}
+			className={cn(styles['navbar-btn'], { [styles.dark]: isDark })}
 		>
 			{Icon}
 		</button>

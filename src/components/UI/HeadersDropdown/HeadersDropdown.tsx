@@ -9,6 +9,7 @@ import { headers } from '../../../utils/headers'
 import MarkdownController from '../../../helpers/MarkdownController'
 import Tooltip from '@reach/tooltip'
 import '@reach/tooltip/styles.css'
+import { useThemeContext } from '../../../context/ThemeContext'
 
 interface HeadersDropdownProps {
 	isShown: boolean
@@ -21,6 +22,8 @@ const HeadersDropdown: FC<HeadersDropdownProps> = ({
 	setIsShown,
 	markdownController
 }) => {
+	const { isDark } = useThemeContext()
+
 	const triggerRef = useRef<HTMLDivElement>(null)
 	const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -31,11 +34,18 @@ const HeadersDropdown: FC<HeadersDropdownProps> = ({
 	useClickOutside(dropdownRef, triggerRef, () => setIsShown(false))
 
 	return (
-		<Tooltip label="Headers">
+		<Tooltip
+			label="Headers"
+			style={{
+				backgroundColor: isDark ? '#3a4f4d' : '',
+				border: isDark ? '1px solid #533c3c' : '',
+				color: isDark ? '#95a59f' : ''
+			}}
+		>
 			<div
 				onClick={toggleDropdown}
 				ref={triggerRef}
-				className={styles.trigger}
+				className={cn(styles.trigger, { [styles.dark]: isDark })}
 				role="button"
 			>
 				<Icon icon={Icons.HEADER} />

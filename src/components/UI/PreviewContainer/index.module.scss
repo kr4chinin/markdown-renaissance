@@ -34,3 +34,16 @@
         font-size: 16px;
     }
 }
+
+// Dark theme
+.container.dark {
+
+    .content-container {
+        background-color: $dark;
+        box-shadow: $dark-shadow;
+    }
+
+    .stats-container {
+        color: $dark-font;
+    }
+}

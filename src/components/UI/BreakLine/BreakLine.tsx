@@ -1,8 +1,13 @@
 import styles from './index.module.scss'
+import cn from 'classnames'
+import { useThemeContext } from '../../../context/ThemeContext'
+import { memo } from 'react'
 
 const BreakLine = () => {
+    const {isDark} = useThemeContext()
+
 	return (
-		<div className={styles.container}>
+		<div className={cn(styles.container, {[styles.dark]: isDark})}>
 			<hr />
 
 			<svg
@@ -26,4 +31,4 @@ const BreakLine = () => {
 	)
 }
 
-export default BreakLine
+export default memo(BreakLine)

@@ -3,7 +3,7 @@ import { createContext, FC, useContext, useState } from 'react'
 export type Theme = 'light' | 'dark'
 
 const ThemeContext = createContext({
-	theme: 'light' as Theme,
+	isDark: false,
 	setTheme: (theme: Theme) => {}
 })
 
@@ -23,7 +23,7 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({
 	return (
 		<ThemeContext.Provider
 			value={{
-				theme,
+				isDark: theme === 'dark',
 				setTheme
 			}}
 		>

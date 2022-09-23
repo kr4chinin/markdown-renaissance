@@ -44,3 +44,17 @@
 .action-btn.active {
 	filter: brightness(0.9);
 }
+
+// Dark theme 
+.action-btn.dark {
+    background: $dark-button;
+    box-shadow: $dark-button-shadow;
+
+    svg {
+        color: $dark-icon;
+    }
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+}

@@ -14,8 +14,12 @@ import download from 'react-useanimations/lib/download'
 import UseAnimations from 'react-useanimations'
 import { animatedIconsPrimaryColor } from '../../../utils/consts'
 import MarkdownStats from '../../MarkdownStats/MarkdownStats'
+import cn from 'classnames'
+import { useThemeContext } from '../../../context/ThemeContext'
 
 const MarkdownContainer = () => {
+	const { isDark } = useThemeContext()
+
 	const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
 	const [textareaValue, setTextareaValue] = useState('')
@@ -49,7 +53,11 @@ const MarkdownContainer = () => {
 		<div className={styles.container}>
 			<ContainerTitle title="Your markdown" />
 			<BreakLine />
-			<div className={styles['content-container']}>
+			<div
+				className={cn(styles['content-container'], {
+					[styles.dark]: isDark
+				})}
+			>
 				<ControlsContainer>
 					<ActionButton
 						tooltipTitle="Bold"
@@ -81,8 +89,8 @@ const MarkdownContainer = () => {
 						Icon={
 							<UseAnimations
 								animation={download}
-								strokeColor={animatedIconsPrimaryColor}
-								fillColor="#d1d1d1"
+								strokeColor={isDark ? '#5c6361' : animatedIconsPrimaryColor}
+								fillColor={isDark ? '#2e3432' : '#d1d1d1'}
 							/>
 						}
 						onClick={handleRestoreSession}
@@ -98,8 +106,8 @@ const MarkdownContainer = () => {
 				</div>
 			</div>
 			<div className={styles['stats-container']}>
-                <MarkdownStats />
-            </div>
+				<MarkdownStats />
+			</div>
 		</div>
 	)
 }

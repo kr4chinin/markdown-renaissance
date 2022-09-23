@@ -1,3 +1,5 @@
+@import '../../styles/utils/ColorPallete';
+
 $font-size: 1rem;
 $line-height: 1.25;
 $font-family: monospace;
@@ -15,29 +17,29 @@ $font-family: monospace;
 	left: 0;
 
 	width: calc(100% - 20px);
-	height: calc(100% - 20px);	
-    
-    margin: 10px;
+	height: calc(100% - 20px);
+
+	margin: 10px;
 	padding: 10px;
 	border: 0;
-    border-radius: 10px;
+	border-radius: 10px;
 
-    font-size: $font-size;
+	font-size: $font-size;
 	font-family: $font-family;
 	line-height: $line-height;
 
-    overflow: auto;
+	overflow: auto;
 }
 
 #editing {
 	z-index: 1;
 
-    color: transparent;
+	color: transparent;
 	background: transparent;
-    text-indent: 5px;
+	text-indent: 5px;
 	caret-color: black;
 
-    resize: none;
+	resize: none;
 }
 
 #highlighting {
@@ -45,15 +47,22 @@ $font-family: monospace;
 }
 
 #highlighting * {
-    /* Add text styles to highlighting tokens */
+	/* Add text styles to highlighting tokens */
 	font-size: $font-size;
 	font-family: $font-family;
 	line-height: $line-height;
 }
 
 #editing:focus {
-    outline: 2px solid rgba(0, 0, 0, 0.25);
+	outline: 2px solid rgba(0, 0, 0, 0.25);
 }
 
+// Dark theme
+#editing.dark {
+	caret-color: $dark-font;
+}
 
+#editing.dark:focus {
+    outline: 2px solid rgba(138, 137, 137, 0.25);
+}
 

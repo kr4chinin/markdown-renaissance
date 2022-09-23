@@ -20,4 +20,10 @@
             position: relative;
         }
 	}
+
+    // Dark theme
+    .content-container.dark {
+        background-color: $dark;
+        box-shadow: $dark-shadow;
+    }
 }

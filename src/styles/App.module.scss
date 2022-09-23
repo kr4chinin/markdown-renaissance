@@ -29,3 +29,12 @@
 		gap: 65px;
 	}
 }
+
+// Dark theme
+.container.dark {
+    background-color: $dark;
+
+    .title {
+        color: $dark-font;
+    }
+}
