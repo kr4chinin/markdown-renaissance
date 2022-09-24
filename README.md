@@ -1,7 +1,7 @@
 # Markdown Renaissance 🏛
 
 I am constantly writing small markdown notes and I've decided to make **minimlistic**, stylish and high-perfomance redactor to sue my needs. This app has 
-all basic functionality to comfortably write markdown text on **laptops** and **mobile** devices. [Check it live here](http://markdown-renaissance.surge.sh).
+all basic functionality to comfortably write markdown text on **laptops** and **mobile** devices. [Check it live here](http://app.markdown-renaissance.surge.sh/).
 
 ## Introduction
 
