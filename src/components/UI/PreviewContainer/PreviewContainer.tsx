@@ -19,7 +19,7 @@ const PreviewParser = lazy(() => import('../../PreviewParser/PreviewParser'))
 const PreviewContainer = () => {
 	const { isDark } = useThemeContext()
 	const { markdown } = useMarkdownContext()
-    
+
 	const [showPreview, setShowPreview] = useState(false)
 	const [isSavedActive, setIsSavedActive] = useState(false)
 
@@ -69,7 +69,7 @@ const PreviewContainer = () => {
 				</ControlsContainer>
 				<div className={styles['parser-container']}>
 					{showPreview && (
-						<Suspense fallback="Loading...">
+						<Suspense fallback={<p className={styles.loading}>Loading...</p>}>
 							<PreviewParser />
 						</Suspense>
 					)}

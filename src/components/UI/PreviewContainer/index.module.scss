@@ -21,6 +21,11 @@
 			padding: 20px;
 
 			overflow: scroll;
+
+            .loading {
+                font-family: 'American Typewriter', sans-serif;
+                color: black;
+            }
 		}
 	}
 
@@ -40,6 +45,12 @@
 	.content-container {
 		background-color: $dark;
 		box-shadow: $dark-shadow;
+
+        .parser-container {
+            .loading {
+                color: $dark-font;
+            }
+        }
 	}
 
 	.stats-container {
