@@ -18,7 +18,7 @@ all basic functionality to comfortably write markdown text on **laptops** and **
 * You can either show or hide markdown preview (it is hidden on the first render to increase TTI)
 * Amazing dark theme
 
-App is also highly usable on mobile devices:
+App is also optimized for mobile devices:
 
 <img width="425" alt="Mobile main screen view" src="https://user-images.githubusercontent.com/103210607/192011973-95ce0eed-b31b-4f74-ad7c-742460920022.png">
 
