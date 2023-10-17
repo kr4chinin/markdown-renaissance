@@ -1,24 +1,24 @@
+import { Icon } from '@iconify/react'
+import cn from 'classnames'
+import { useRef, useState } from 'react'
+import UseAnimations from 'react-useanimations'
+import download from 'react-useanimations/lib/download'
+import { useMarkdownContext } from '../../../context/MarkdownContext'
+import { useThemeContext } from '../../../context/ThemeContext'
+import MarkdownController from '../../../controllers/MarkdownController'
+import { Icons } from '../../../utils/Icons'
+import { animatedIconsPrimaryColor } from '../../../utils/consts'
 import MarkdownParser from '../../MarkdownParser/MarkdownParser'
+import MarkdownStats from '../../MarkdownStats/MarkdownStats'
+import ActionButton from '../ActionButton/ActionButton'
 import BreakLine from '../BreakLine/BreakLine'
 import ContainerTitle from '../ContainerTitle/ContainerTitle'
-import styles from './index.module.scss'
-import { Icon } from '@iconify/react'
-import ActionButton from '../ActionButton/ActionButton'
-import { Icons } from '../../../utils/Icons'
-import { useRef, useState } from 'react'
-import { useMarkdownContext } from '../../../context/MarkdownContext'
-import MarkdownController from '../../../controllers/MarkdownController'
 import ControlsContainer from '../ControlsContainer/ControlsContainer'
 import HeadersDropdown from '../HeadersDropdown/HeadersDropdown'
-import download from 'react-useanimations/lib/download'
-import UseAnimations from 'react-useanimations'
-import { animatedIconsPrimaryColor } from '../../../utils/consts'
-import MarkdownStats from '../../MarkdownStats/MarkdownStats'
-import cn from 'classnames'
-import { useThemeContext } from '../../../context/ThemeContext'
+import styles from './index.module.scss'
 
 const MarkdownContainer = () => {
-    const { setMarkdown } = useMarkdownContext()
+	const { setMarkdown } = useMarkdownContext()
 	const { isDark } = useThemeContext()
 
 	const textareaRef = useRef<HTMLTextAreaElement | null>(null)

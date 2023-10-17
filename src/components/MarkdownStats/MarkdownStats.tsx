@@ -1,12 +1,12 @@
-import styles from './index.module.scss'
 import { Icon } from '@iconify/react'
-import { Icons } from '../../utils/Icons'
-import MarkdownStatsSection from './MarkdownStatsSection'
 import { useMarkdownContext } from '../../context/MarkdownContext'
 import {
 	calculateCharacters,
 	calculateWords
 } from '../../helpers/markdownCalculations'
+import { Icons } from '../../utils/Icons'
+import MarkdownStatsSection from './MarkdownStatsSection'
+import styles from './index.module.scss'
 
 const MarkdownStats = () => {
 	const { markdown } = useMarkdownContext()

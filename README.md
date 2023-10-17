@@ -1,6 +1,6 @@
 # Markdown Renaissance 🏛
 
-I am constantly writing small markdown notes and I've decided to make **minimlistic**, stylish and high-perfomance redactor to sue my needs. This app has 
+I am constantly writing small markdown notes and I've decided to make **minimlistic**, stylish and high-perfomance redactor to sue my needs. This app has
 all basic functionality to comfortably write markdown text on **laptops** and **mobile** devices. [Check it live here](http://app.markdown-renaissance.surge.sh/).
 
 ## Introduction
@@ -10,13 +10,13 @@ all basic functionality to comfortably write markdown text on **laptops** and **
 
 ### Functionality
 
-* **Text highlighting** while writing markdown, ability to **preview** your markdown notes
-* **Debounced** text parsing for higher perfomance, preview **lazy-loading**
-* Ability to press button and insert most common markdown **presets** (bold, italic text, header or link) or to clear screen
-* You can **store** your session in your browser's local storage and **restore** it later on to continue work
-* **Characters** and **words** calculation, ability to hide it
-* You can either show or hide markdown preview (it is hidden on the first render to increase TTI)
-* Amazing dark theme
+- **Text highlighting** while writing markdown, ability to **preview** your markdown notes
+- **Debounced** text parsing for higher perfomance, preview **lazy-loading**
+- Ability to press button and insert most common markdown **presets** (bold, italic text, header or link) or to clear screen
+- You can **store** your session in your browser's local storage and **restore** it later on to continue work
+- **Characters** and **words** calculation, ability to hide it
+- You can either show or hide markdown preview (it is hidden on the first render to increase TTI)
+- Amazing dark theme
 
 App is also optimized for mobile devices:
 
@@ -24,18 +24,18 @@ App is also optimized for mobile devices:
 
 ### Tech stack
 
-* React + TypeScript
-* [Vite](https://vitejs.dev)
-* SASS
-* [highlight.js](https://highlightjs.org) for text highlighting
-* [remarkable](https://www.npmjs.com/package/remarkable) for markdown parsing
-* Iconify and [react-useanimations](https://react.useanimations.com) for svg icons
-* Reach Tooltip for tooltips
-* Surge for static page deployment
+- React + TypeScript
+- [Vite](https://vitejs.dev)
+- SASS
+- [highlight.js](https://highlightjs.org) for text highlighting
+- [remarkable](https://www.npmjs.com/package/remarkable) for markdown parsing
+- Iconify and [react-useanimations](https://react.useanimations.com) for svg icons
+- Reach Tooltip for tooltips
+- Surge for static page deployment
 
 ![App usage](https://user-images.githubusercontent.com/103210607/192013405-e4e7f067-5718-4d37-99be-da64c4cf49bd.gif)
 
 ### Further plans
 
-* Add ability to **download** markdown files
-* Optimize adaptive layout, work on cross-browser solutions
+- Add ability to **download** markdown files
+- Optimize adaptive layout, work on cross-browser solutions

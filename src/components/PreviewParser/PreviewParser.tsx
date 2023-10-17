@@ -1,8 +1,8 @@
-import styles from './index.module.scss'
+import cn from 'classnames'
 import { Remarkable } from 'remarkable'
 import { useMarkdownContext } from '../../context/MarkdownContext'
-import cn from 'classnames'
 import { useThemeContext } from '../../context/ThemeContext'
+import styles from './index.module.scss'
 
 const md = new Remarkable({
 	linkTarget: '_blank'

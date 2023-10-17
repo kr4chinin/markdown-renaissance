@@ -1,7 +1,7 @@
-import styles from './index.module.scss'
 import cn from 'classnames'
-import { useThemeContext } from '../../../context/ThemeContext'
 import { memo } from 'react'
+import { useThemeContext } from '../../../context/ThemeContext'
+import styles from './index.module.scss'
 
 const BreakLine = () => {
 	const { isDark } = useThemeContext()

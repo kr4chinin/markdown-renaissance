@@ -1,9 +1,9 @@
+import cn from 'classnames'
 import Navbar from './components/Navbar/Navbar'
 import MarkdownContainer from './components/UI/MarkdownContainer/MarkdownContainer'
 import PreviewContainer from './components/UI/PreviewContainer/PreviewContainer'
 import { useThemeContext } from './context/ThemeContext'
 import styles from './styles/App.module.scss'
-import cn from 'classnames'
 
 const App = () => {
 	const { isDark } = useThemeContext()
