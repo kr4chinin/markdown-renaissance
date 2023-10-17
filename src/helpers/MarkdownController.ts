@@ -48,7 +48,7 @@ class MarkdownController {
 		// Slice out chunk of selected text
 		const selectedText = this._textareaValue.slice(selectionStart, selectionEnd)
 
-		// Make selected text chunk bold / italic / link and insert it on its intial position (if no
+		// Make selected text chunk bold / italic / link and insert it on its initial position (if no
 		// selected text - we will insert just **** / ** / [](url) to the place where cursor was located)
 
 		let result = ''
