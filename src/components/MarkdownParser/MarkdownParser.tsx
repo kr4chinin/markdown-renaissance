@@ -24,6 +24,7 @@ const MarkdownParser = forwardRef(
 			setMarkdown(value)
 		}
 
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		const debouncedHandleChange = useCallback(debounce(handleChange, 250), [])
 
 		function handleSyncScroll(element: HTMLElement) {

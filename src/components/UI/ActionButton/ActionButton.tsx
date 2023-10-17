@@ -32,6 +32,7 @@ const ActionButton: FC<ActionButtonProps> = ({
 				}}
 			>
 				<button
+					type="button"
 					className={cn(
 						styles['action-btn'],
 						{ [styles.active]: isActive },
@@ -45,9 +46,10 @@ const ActionButton: FC<ActionButtonProps> = ({
 		)
 	}
 
-	// Else render ordinary ActionButton
+	// Otherwise render ordinary ActionButton
 	return (
 		<button
+			type="button"
 			className={cn(
 				styles['action-btn'],
 				{ [styles.active]: isActive },

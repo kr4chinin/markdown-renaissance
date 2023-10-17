@@ -1,7 +1,7 @@
+import cn from 'classnames'
 import { FC } from 'react'
 import { useThemeContext } from '../../../context/ThemeContext'
 import styles from './index.module.scss'
-import cn from 'classnames'
 
 interface NavbarButtonProps {
 	Icon: React.ReactNode
@@ -13,6 +13,7 @@ const NavbarButton: FC<NavbarButtonProps> = ({ Icon, onClick }) => {
 
 	return (
 		<button
+			type="button"
 			onClick={onClick}
 			className={cn(styles['navbar-btn'], { [styles.dark]: isDark })}
 		>
