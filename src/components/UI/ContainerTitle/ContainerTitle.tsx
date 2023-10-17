@@ -1,8 +1,8 @@
-import styles from './index.module.scss'
-import { ReactComponent as Greek } from '../../../assets/icons/greek.svg'
-import { FC, memo } from 'react'
-import { useThemeContext } from '../../../context/ThemeContext'
 import cn from 'classnames'
+import { FC, memo } from 'react'
+import { ReactComponent as Greek } from '../../../assets/icons/greek.svg'
+import { useThemeContext } from '../../../context/ThemeContext'
+import styles from './index.module.scss'
 
 interface ContainerTitleProps {
 	title: string

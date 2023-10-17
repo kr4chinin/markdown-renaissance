@@ -1,15 +1,15 @@
-import styles from './index.module.scss'
+import { Icon } from '@iconify/react'
+import { Tooltip } from '@reach/tooltip'
+import '@reach/tooltip/styles.css'
 import cn from 'classnames'
 import { FC, useRef } from 'react'
+import { useThemeContext } from '../../../context/ThemeContext'
+import MarkdownController from '../../../controllers/MarkdownController'
 import { useClickOutside } from '../../../hooks/useClickOutside'
-import ActionButton from '../ActionButton/ActionButton'
-import { Icon } from '@iconify/react'
 import { Icons } from '../../../utils/Icons'
 import { headers } from '../../../utils/headers'
-import MarkdownController from '../../../helpers/MarkdownController'
-import Tooltip from '@reach/tooltip'
-import '@reach/tooltip/styles.css'
-import { useThemeContext } from '../../../context/ThemeContext'
+import ActionButton from '../ActionButton/ActionButton'
+import styles from './index.module.scss'
 
 interface HeadersDropdownProps {
 	isShown: boolean

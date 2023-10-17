@@ -1,11 +1,11 @@
-import './index.scss'
-import '../../../node_modules/highlight.js/styles/base16/papercolor-light.css'
 import { ForwardedRef, forwardRef, useCallback, useEffect } from 'react'
-import { debounce } from '../../helpers/debounce'
+import '../../../node_modules/highlight.js/styles/base16/papercolor-light.css'
 import { useMarkdownContext } from '../../context/MarkdownContext'
+import { useThemeContext } from '../../context/ThemeContext'
+import { debounce } from '../../helpers/debounce'
 import { handleUpdateHighlight } from '../../helpers/handleUpdateHighlight'
 import { initialMarkdownValue } from '../../utils/initialMarkdownValue'
-import { useThemeContext } from '../../context/ThemeContext'
+import './index.scss'
 
 interface MarkdownParserProps {
 	textareaValue: string
@@ -24,6 +24,7 @@ const MarkdownParser = forwardRef(
 			setMarkdown(value)
 		}
 
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		const debouncedHandleChange = useCallback(debounce(handleChange, 250), [])
 
 		function handleSyncScroll(element: HTMLElement) {
@@ -83,7 +84,7 @@ const MarkdownParser = forwardRef(
 						style={{
 							background: isDark ? '#1a1d1b' : ''
 						}}
-					></code>
+					/>
 				</div>
 			</>
 		)
