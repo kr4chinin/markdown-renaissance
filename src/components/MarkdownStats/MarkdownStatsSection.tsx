@@ -1,11 +1,11 @@
-import ActionButton from '../UI/ActionButton/ActionButton'
-import styles from './index.module.scss'
+import cn from 'classnames'
+import { FC, useState } from 'react'
 import UseAnimations from 'react-useanimations'
 import visibility from 'react-useanimations/lib/visibility'
-import { FC, useState } from 'react'
-import cn from 'classnames'
 import { useThemeContext } from '../../context/ThemeContext'
 import { animatedIconsPrimaryColor } from '../../utils/consts'
+import ActionButton from '../UI/ActionButton/ActionButton'
+import styles from './index.module.scss'
 
 interface MarkdownStatsSectionProps {
 	Icon: React.ReactNode
@@ -17,7 +17,7 @@ const MarkdownStatsSection: FC<MarkdownStatsSectionProps> = ({
 	children
 }) => {
 	const { isDark } = useThemeContext()
-    
+
 	const [isShown, setIsShown] = useState(true)
 
 	function toggle() {

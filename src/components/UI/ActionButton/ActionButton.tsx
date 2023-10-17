@@ -1,9 +1,9 @@
-import { FC } from 'react'
-import styles from './index.module.scss'
-import cn from 'classnames'
 import { Tooltip } from '@reach/tooltip'
 import '@reach/tooltip/styles.css'
+import cn from 'classnames'
+import { FC } from 'react'
 import { useThemeContext } from '../../../context/ThemeContext'
+import styles from './index.module.scss'
 
 interface ActionButtonProps {
 	Icon: React.ReactNode

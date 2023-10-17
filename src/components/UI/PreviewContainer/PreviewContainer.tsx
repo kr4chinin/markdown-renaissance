@@ -1,17 +1,17 @@
-import { useMarkdownContext } from '../../../context/MarkdownContext'
+import cn from 'classnames'
 import { lazy, Suspense, useState } from 'react'
+import UseAnimations from 'react-useanimations'
+import plusToX from 'react-useanimations/lib/plusToX'
+import radioButton from 'react-useanimations/lib/radioButton'
+import trash from 'react-useanimations/lib/trash'
+import { useMarkdownContext } from '../../../context/MarkdownContext'
+import { useThemeContext } from '../../../context/ThemeContext'
+import { animatedIconsPrimaryColor } from '../../../utils/consts'
 import ActionButton from '../ActionButton/ActionButton'
 import BreakLine from '../BreakLine/BreakLine'
 import ContainerTitle from '../ContainerTitle/ContainerTitle'
 import ControlsContainer from '../ControlsContainer/ControlsContainer'
 import styles from './index.module.scss'
-import plusToX from 'react-useanimations/lib/plusToX'
-import trash from 'react-useanimations/lib/trash'
-import radioButton from 'react-useanimations/lib/radioButton'
-import UseAnimations from 'react-useanimations'
-import { animatedIconsPrimaryColor } from '../../../utils/consts'
-import cn from 'classnames'
-import { useThemeContext } from '../../../context/ThemeContext'
 
 const PreviewParser = lazy(() => import('../../PreviewParser/PreviewParser'))
 
@@ -79,8 +79,8 @@ const PreviewContainer = () => {
 					isActive={showPreview}
 					Icon={
 						<UseAnimations
-            speed={2}
-            animation={radioButton}
+							speed={2}
+							animation={radioButton}
 							strokeColor={isDark ? '#5c6361' : animatedIconsPrimaryColor}
 						/>
 					}

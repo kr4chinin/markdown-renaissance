@@ -1,11 +1,11 @@
 import { Icon } from '@iconify/react'
-import { Icons } from '../../utils/Icons'
-import NavbarButton from '../UI/NavbarButton/NavbarButton'
-import styles from './index.module.scss'
 import UseAnimations from 'react-useanimations'
 import github from 'react-useanimations/lib/github'
 import { useThemeContext } from '../../context/ThemeContext'
+import { Icons } from '../../utils/Icons'
 import { animatedIconsPrimaryColor } from '../../utils/consts'
+import NavbarButton from '../UI/NavbarButton/NavbarButton'
+import styles from './index.module.scss'
 
 const Navbar = () => {
 	const { isDark, setTheme } = useThemeContext()

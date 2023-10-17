@@ -22,10 +22,10 @@
 
 			overflow: scroll;
 
-            .loading {
-                font-family: 'American Typewriter', sans-serif;
-                color: black;
-            }
+			.loading {
+				font-family: 'American Typewriter', sans-serif;
+				color: black;
+			}
 		}
 	}
 
@@ -46,11 +46,11 @@
 		background-color: $dark;
 		box-shadow: $dark-shadow;
 
-        .parser-container {
-            .loading {
-                color: $dark-font;
-            }
-        }
+		.parser-container {
+			.loading {
+				color: $dark-font;
+			}
+		}
 	}
 
 	.stats-container {

@@ -5,5 +5,6 @@
 	"semi": false,
 	"jsxSingleQuote": false,
 	"trailingComma": "none",
-	"arrowParens": "avoid"
+	"arrowParens": "avoid",
+	"plugins": ["prettier-plugin-organize-imports"]
 }
